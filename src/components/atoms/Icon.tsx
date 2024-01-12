@@ -1,43 +1,52 @@
-import colors from "../../constants/colors";
-import { Color } from "../../models/types";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { icon } from '@fortawesome/fontawesome-svg-core/import.macro'
+import { Color, FoundationProps } from "../../models/types";
+import { IconDefinition, SizeProp } from '@fortawesome/fontawesome-svg-core';
+import colors from '../../constants/colors';
 
-export const iconSizes = {
-  large: "2rem",
-  medium: "1rem",
-  small: "0.5rem",
-};
+const icons: {
+  [key: string]: IconDefinition
+} = {
+  moon: icon({ name: "moon", style: 'regular' }),
+  envelope: icon({ name: "envelope", style: 'regular' }),
+  bookmark: icon({ name: "bookmark", style: 'regular' }),
+  user: icon({ name: "user", style: 'regular' }),
+  circleUser: icon({ name: "circle-user", style: 'regular' }),
+  calendar: icon({ name: "calendar", style: 'regular' }),
+  clock: icon({ name: "clock", style: 'regular' }),
+  copy: icon({ name: "copy", style: 'regular' }),
+  spinner: icon({ name: "spinner", style: 'solid' }),
+  bars: icon({ name: "bars", style: 'solid' }),
+  // git: icon({ name: 'github', style: 'solid' }),
+  // html5: icon({ name: 'html5', style: 'solid' }),
+  // node: icon({ name: 'node', style: 'solid' }),
+  // react: icon({ name: 'react', style: 'solid' }),
+  // gitlab: icon({ name: 'gitlab', style: 'solid' }),
+  // yarn: icon({ name: 'yarn', style: 'solid' }),
+  // vuejs: icon({ name: 'vuejs', style: 'solid' }),
+  // jenkins: icon({ name: 'jenkins', style: 'solid' }),
+  // jira: icon({ name: 'jira', style: 'solid' }),
+  // aws: icon({ name: 'aws', style: 'solid' }),
+}
+
+type IconsName = keyof typeof icons;
 
 export type IconProps = {
-  className?: string;
-  name:
-  | "clear_night"
-  | "clear_day"
-  | "calendar_today"
-  | "search"
-  | "menu"
-  | "close"
-  | "done"
-  | "favorite"
-  | "check";
-  size?: "large" | "medium" | "small";
+  name: IconsName
+  size?: SizeProp
   color?: Color;
-  style?: any
 };
 
 const Icon = ({
-  className = "material-symbols-outlined",
+  className,
   name,
-  size = "medium",
+  size = "3x",
   color = "primary3",
-  style
-}: IconProps) => {
+}: IconProps & FoundationProps) => {
   return (
-    <span
-      className={className}
-      css={{ fontSize: iconSizes[size], color: colors[color], ...style }}
-    >
-      {name}
-    </span>
+    <span className={className}>
+      <FontAwesomeIcon icon={icons[name]} size={size} color={colors[color]} />
+    </span >
   );
 };
 

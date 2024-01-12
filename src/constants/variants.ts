@@ -1,4 +1,3 @@
-
 const variants = {
     h0: {
         fontSize: "40px",
@@ -71,3 +70,5 @@ const variants = {
         fontWeight: "700",
     },
 };
+
+export default variants;
