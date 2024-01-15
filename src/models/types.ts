@@ -29,5 +29,19 @@ export type FoundationProps = {
     children?: ReactNode;
 };
 
+export type Post = {
+    node: {
+        id: string
+        frontmatter: {
+            title: string
+            summary: string
+            date: string
+            categories: string[]
+            thumbnail: {
+                publicURL: string
+            }
+        }
+    }
+}
 
-export type Remark = { allMarkdownRemark: { edges: any } };
+export type Remark = { allMarkdownRemark: { edges: Post[] } };
