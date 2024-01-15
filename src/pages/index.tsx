@@ -6,6 +6,8 @@ import global from "../styles/global";
 import Header from "../components/Hearder";
 import Footer from "../components/Footer";
 import { Remark } from "../models/types";
+import PostList from "../components/PostList";
+import { maxq } from "../utils/styleUtil";
 
 const indexStyles = {
   main: css({
@@ -18,15 +20,21 @@ const indexStyles = {
 
 const IndexPage: FC<PageProps<Remark>> = ({ data: { allMarkdownRemark: { edges } }, location }) => {
 
-  console.log(edges);
-
   return (
     <>
       <Global styles={global} />
       <Header />
       <main
         css={indexStyles.main}>
-        <h2>h2</h2>
+        <div
+          css={{
+            [maxq[2]]: { margin: "0 100px" },
+            [maxq[1]]: { margin: "0px 20px" },
+            margin: "0 200px",
+          }}
+        >
+          <PostList posts={edges} />
+        </div>
       </main>
       <Footer />
     </>
