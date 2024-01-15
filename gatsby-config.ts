@@ -12,7 +12,16 @@ const config: GatsbyConfig = {
   plugins: [
     "gatsby-plugin-emotion",
     "gatsby-transformer-sharp",
-    "gatsby-plugin-sharp",
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        defaults: {
+          formats: ['auto', 'webp'],
+          quality: 100,
+          placeholder: 'blurred',
+        }
+      }
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { IGatsbyImageData } from 'gatsby-plugin-image'
 
 export type Color =
     | "primary1"
@@ -38,7 +39,9 @@ export type Post = {
             date: string
             categories: string[]
             thumbnail: {
-                publicURL: string
+                childImageSharp: {
+                    gatsbyImageData: IGatsbyImageData
+                }
             }
         }
     }

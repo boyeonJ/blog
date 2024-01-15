@@ -8,6 +8,7 @@ import Footer from "../components/Footer";
 import { Remark } from "../models/types";
 import PostList from "../components/PostList";
 import { maxq } from "../utils/styleUtil";
+import { GatsbyImage } from "gatsby-plugin-image";
 
 const indexStyles = {
   main: css({
@@ -33,6 +34,7 @@ const IndexPage: FC<PageProps<Remark>> = ({ data: { allMarkdownRemark: { edges }
             margin: "0 200px",
           }}
         >
+          <GatsbyImage image={edges[0].node.frontmatter.thumbnail.childImageSharp.gatsbyImageData} alt="test" />
           <PostList posts={edges} />
         </div>
       </main>
