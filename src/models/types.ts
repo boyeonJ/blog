@@ -28,3 +28,6 @@ export type FoundationProps = {
     className?: string;
     children?: ReactNode;
 };
+
+
+export type Remark = { allMarkdownRemark: { edges: any } };
