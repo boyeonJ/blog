@@ -9,8 +9,8 @@ const PostList = ({ posts }: { posts: Post[] }) => {
     return (
         <section>
             <Header />
-            {posts.map((post: Post) => (
-                <Article post={post} />
+            {posts.map((post, index) => (
+                <Article key={index} post={post} />
             ))}
         </section>)
 }
@@ -45,7 +45,7 @@ const Article = ({ post }: { post: Post }) => {
                 <FlexBox css={{ gap: "10px" }}>
                     <StyledTypography variant="h1">{post.node.frontmatter.title}</StyledTypography>
                     <FlexBox direction="row" css={{ gap: "5px" }}>
-                        <Icon size="1x" name="calendar_today" color="gray2" />
+                        <Icon size="1x" name="calendar" />
                         <StyledTypography variant="h2" color="gray2">
                             {post.node.frontmatter.date}
                         </StyledTypography>

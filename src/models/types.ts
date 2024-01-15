@@ -47,4 +47,9 @@ export type Post = {
     }
 }
 
-export type Remark = { allMarkdownRemark: { edges: Post[] } };
+export type Remark = {
+    allMarkdownRemark: { edges: Post[] },
+    file: {
+        childImageSharp: { gatsbyImageData: IGatsbyImageData },
+    }
+};
