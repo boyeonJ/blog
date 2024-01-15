@@ -41,7 +41,7 @@ const Icon = ({
   className,
   name,
   size = "3x",
-  color = "primary3",
+  color = "gray2",
 }: IconProps & FoundationProps) => {
   return (
     <span className={className}>

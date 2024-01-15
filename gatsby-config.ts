@@ -12,6 +12,7 @@ const config: GatsbyConfig = {
   plugins: [
     "gatsby-plugin-emotion",
     "gatsby-transformer-sharp",
+    "gatsby-plugin-image",
     {
       resolve: `gatsby-plugin-sharp`,
       options: {
@@ -27,6 +28,13 @@ const config: GatsbyConfig = {
       options: {
         name: `posts`,
         path: `${__dirname}/src/posts`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/static`,
       },
     },
     {
