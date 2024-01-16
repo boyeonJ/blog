@@ -32,6 +32,8 @@ const global = css`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: var(--ff-primary);
+    color: var(--clr-primary-3);
   }
   img[alt="mdx"] {
     width: 500px;

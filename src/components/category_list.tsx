@@ -1,6 +1,6 @@
 import { FC } from "react"
-import StyledTypography from "./atoms/StyledTypography"
-import Button from "./foundations/Button"
+import StyledTypography from "./atoms/styled_typography"
+import Button from "./foundations/button"
 import { navigate } from "gatsby-link"
 
 export type CategoryListProps = {

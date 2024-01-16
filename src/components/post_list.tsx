@@ -1,8 +1,8 @@
 import { Link } from "gatsby-link";
 import colors from "../constants/colors";
-import FlexBox from "./atoms/FlexBox";
-import StyledTypography from "./atoms/StyledTypography";
-import Icon from "./atoms/Icon";
+import FlexBox from "./atoms/flex_box";
+import StyledTypography from "./atoms/styled_typography";
+import Icon from "./atoms/icon";
 import { Post } from "../models/types";
 import { useMemo } from "react";
 
@@ -44,7 +44,7 @@ const Header = () => {
     )
 }
 
-const Article = ({ node: { frontmatter } }: Post) => {
+const Article = ({ node: { frontmatter, fields: { slug } } }: Post) => {
     return (
         <article
             css={{
@@ -52,7 +52,7 @@ const Article = ({ node: { frontmatter } }: Post) => {
                 padding: "30px 20px",
             }}
         >
-            <Link to={`/detail/`}>
+            <Link to={slug} >
                 <FlexBox css={{ gap: "20px" }}>
                     <StyledTypography variant="h1">{frontmatter.title}</StyledTypography>
                     <FlexBox direction="row" css={{ gap: "5px" }}>
@@ -67,7 +67,7 @@ const Article = ({ node: { frontmatter } }: Post) => {
                     </StyledTypography>
                 </FlexBox>
             </Link>
-        </article>
+        </article >
     )
 }
 

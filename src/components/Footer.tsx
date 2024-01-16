@@ -1,6 +1,6 @@
 import colors from "../constants/colors";
-import FlexBox from "./atoms/FlexBox";
-import StyledTypography from "./atoms/StyledTypography";
+import FlexBox from "./atoms/flex_box";
+import StyledTypography from "./atoms/styled_typography";
 
 const Footer = () => {
     return (

@@ -33,6 +33,10 @@ export type FoundationProps = {
 export type Post = {
     node: {
         id: string
+        html: string
+        fields: {
+            slug: string
+        }
         frontmatter: {
             title: string
             summary: string

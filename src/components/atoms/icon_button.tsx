@@ -1,6 +1,6 @@
 import { FoundationProps } from "../../models/types";
-import Button, { ButtonProps } from "../foundations/Button";
-import Icon, { IconProps } from "./Icon";
+import Button, { ButtonProps } from "../foundations/button";
+import Icon, { IconProps } from "./icon";
 
 const IconButton = ({
   className,
