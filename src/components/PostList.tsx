@@ -4,13 +4,24 @@ import FlexBox from "./atoms/FlexBox";
 import StyledTypography from "./atoms/StyledTypography";
 import Icon from "./atoms/Icon";
 import { Post } from "../models/types";
+import { useMemo } from "react";
 
-const PostList = ({ posts }: { posts: Post[] }) => {
+const PostList = ({ posts, selectedCategory }: { posts: Post[], selectedCategory: string }) => {
+    const categoryPosts = useMemo(
+        () =>
+            posts.filter(({ node: { frontmatter: { categories } } }: Post) =>
+                selectedCategory !== 'All'
+                    ? categories.includes(selectedCategory)
+                    : true,
+            ),
+        [selectedCategory],
+    )
+
     return (
         <section>
             <Header />
-            {posts.map((post, index) => (
-                <Article key={index} post={post} />
+            {categoryPosts.map((post, index) => (
+                <Article key={index} {...post} />
             ))}
         </section>)
 }
@@ -33,7 +44,7 @@ const Header = () => {
     )
 }
 
-const Article = ({ post }: { post: Post }) => {
+const Article = ({ node: { frontmatter } }: Post) => {
     return (
         <article
             css={{
@@ -42,16 +53,17 @@ const Article = ({ post }: { post: Post }) => {
             }}
         >
             <Link to={`/detail/`}>
-                <FlexBox css={{ gap: "10px" }}>
-                    <StyledTypography variant="h1">{post.node.frontmatter.title}</StyledTypography>
+                <FlexBox css={{ gap: "20px" }}>
+                    <StyledTypography variant="h1">{frontmatter.title}</StyledTypography>
                     <FlexBox direction="row" css={{ gap: "5px" }}>
                         <Icon size="1x" name="calendar" />
                         <StyledTypography variant="h2" color="gray2">
-                            {post.node.frontmatter.date}
+                            {frontmatter.date}
                         </StyledTypography>
                     </FlexBox>
+                    {/* <GatsbyImage image={frontmatter.thumbnail.childImageSharp.gatsbyImageData} alt="thumbnail" /> */}
                     <StyledTypography variant="h2" color="gray2">
-                        {post.node.frontmatter.summary}
+                        {frontmatter.summary}
                     </StyledTypography>
                 </FlexBox>
             </Link>
