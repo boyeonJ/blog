@@ -12,16 +12,6 @@ import queryString, { ParsedQuery } from 'query-string'
 import CategoryList, { CategoryListProps } from "../components/category_list";
 import Layout from "../components/layout";
 
-
-const indexStyles = {
-  main: css({
-    backgroundColor: colors.primary1,
-    minHeight: "100vh",
-    paddingTop: "30px",
-  })
-}
-
-
 const IndexPage: FC<PageProps<Remark>> = ({
   data: {
     allMarkdownRemark: { edges },
@@ -48,7 +38,7 @@ const IndexPage: FC<PageProps<Remark>> = ({
             },
           }: Post,
         ) => {
-          categories.forEach(category => {
+          categories?.forEach(category => {
             if (list[category] === undefined) list[category] = 1;
             else list[category]++;
           });

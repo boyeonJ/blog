@@ -22,7 +22,11 @@ const headerStyle: {
 };
 
 const navStyle = {
-    li: css({ li: { marginRight: "3rem" } }),
+    li: css([{
+        listStyleType: 'none',
+        padding: 0,
+        margin: 0,
+    }, { li: { marginRight: "3rem" } }]),
 };
 
 const Header = () => {
