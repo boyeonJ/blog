@@ -56,9 +56,11 @@ const Header = () => {
 const HeaderLeft = () => {
     return (
         <div className="logo">
-            <StyledTypography variant="h0" css={{ lineHeight: "38px" }}>
-                BOYEON
-            </StyledTypography>
+            <Link to={"../../blog"}>
+                <StyledTypography variant="h0" css={{ lineHeight: "38px" }}>
+                    BOYEON
+                </StyledTypography>
+            </Link>
         </div>
     );
 };
