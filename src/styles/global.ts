@@ -8,14 +8,16 @@ const defaultTheme = `
 --transition: all 0.3s linear;
 --spacing: 0.1rem;
 --radius: 0.25rem;
---ff-primary: "Apple SD Gothic Neo", "Nanum Gothic", 나눔고딕, NanumGothic, Roboto, "Helvetica Neue", sans-serif;
---ff-secondary: "Open Sans", sans-serif;
 `;
 
+//primary-1 : 배경
+//primary-3 : text color
+//primary-2 : border
 const lightTheme = `
 --clr-primary-1: #FFFFFF;
 --clr-primary-2: #FBFBFB;
---clr-primary-3: #000000;
+--clr-primary-3: #212121;
+--clr-primary-3: #212121;
 --clr-grey-1: #E9E9EB;
 --clr-grey-2: #A4A4A4;
 `;
@@ -29,8 +31,6 @@ const darkTheme = `
 
 const global = css`
   * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
   }
   img[alt="mdx"] {
@@ -43,15 +43,22 @@ const global = css`
     box-sizing: border-box;
   }
   body {
+    color: var(--clr-primary-3);
     padding: 0;
     margin: 0;
     ${lightTheme}
     ${defaultTheme}
-  }
-  ul, li {
-    padding: 0;
-    margin: 0;
-    list-style-type: none;
+    font-family:
+      'Avenir Next',
+      'Spoqa Han Sans',
+      'Apple SD Gothic Neo',
+      'Nanum Barun Gothic',
+      'Nanum Gothic',
+      Verdana,
+      Arial,
+      'Malgun Gothic',
+      Dotum,
+      sans-serif;
   }
   a {
     color: inherit;

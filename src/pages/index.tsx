@@ -3,23 +3,14 @@ import React, { FC, useMemo } from "react";
 import colors from "../constants/colors";
 import { Global, css } from "@emotion/react";
 import global from "../styles/global";
-import Header from "../components/Hearder";
-import Footer from "../components/Footer";
+import Header from "../components/hearder";
+import Footer from "../components/footer";
 import { Post, Remark } from "../models/types";
-import PostList from "../components/PostList";
+import PostList from "../components/post_list";
 import { maxq } from "../utils/styleUtil";
 import queryString, { ParsedQuery } from 'query-string'
-import CategoryList, { CategoryListProps } from "../components/CategoryList";
-
-
-const indexStyles = {
-  main: css({
-    backgroundColor: colors.primary1,
-    minHeight: "100vh",
-    paddingTop: "30px",
-  })
-}
-
+import CategoryList, { CategoryListProps } from "../components/category_list";
+import Layout from "../components/layout";
 
 const IndexPage: FC<PageProps<Remark>> = ({
   data: {
@@ -47,7 +38,7 @@ const IndexPage: FC<PageProps<Remark>> = ({
             },
           }: Post,
         ) => {
-          categories.forEach(category => {
+          categories?.forEach(category => {
             if (list[category] === undefined) list[category] = 1;
             else list[category]++;
           });
@@ -63,25 +54,13 @@ const IndexPage: FC<PageProps<Remark>> = ({
 
   return (
     <>
-      <Global styles={global} />
-      <Header />
-      <main
-        css={indexStyles.main}>
-        <div
-          css={{
-            [maxq[2]]: { margin: "0 100px" },
-            [maxq[1]]: { margin: "0px 20px" },
-            margin: "0 200px",
-          }}
-        >
-          <CategoryList
-            selectedCategory={selectedCategory}
-            categoryList={categoryList}
-          />
-          <PostList posts={edges} selectedCategory={selectedCategory} />
-        </div>
-      </main>
-      <Footer />
+      <Layout>
+        <CategoryList
+          selectedCategory={selectedCategory}
+          categoryList={categoryList}
+        />
+        <PostList posts={edges} selectedCategory={selectedCategory} />
+      </Layout>
     </>
   )
 }
@@ -92,31 +71,35 @@ export const Head: HeadFC = () => <title>Home Page</title>
 
 
 export const getPostList = graphql`
-      query getPostList {
-        allMarkdownRemark(
-          sort: [{frontmatter: {date: DESC}}, {frontmatter: {title: ASC}}]
-      ) {
-        edges {
+query getPostList {
+  allMarkdownRemark(
+    sort: [{frontmatter: {date: DESC}}, {frontmatter: {title: ASC}}]
+  ) {
+      edges {
         node {
-        id
-        frontmatter {
-        title
-          summary
-      date(formatString: "YYYY.MM.DD.")
-      categories
-      thumbnail {
-        childImageSharp {
-        gatsbyImageData(width: 768, height: 200)
+          id
+          html
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+            summary
+            date(formatString: "YYYY.MM.DD.")
+            categories
+            thumbnail {
+              childImageSharp {
+                gatsbyImageData(width: 768, height: 200)
+              }
             }
           }
         }
       }
-    }
   }
-      file(name: {eq: "profile-image" }) {
-        childImageSharp {
-        gatsbyImageData(width: 120, height: 120)
+  file(name: {eq: "profile-image" }) {
+    childImageSharp {
+      gatsbyImageData(width: 120, height: 120)
     }
   }
 }
-      `
+`

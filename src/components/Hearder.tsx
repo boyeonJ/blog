@@ -1,12 +1,12 @@
 import { css } from "@emotion/react";
 import { useEffect, useState } from "react";
 import colors from "../constants/colors";
-import FixedBox from "./atoms/FixedBox";
-import FlexBox from "./atoms/FlexBox";
+import FixedBox from "./atoms/fixed_box";
+import FlexBox from "./atoms/flex_box";
 import { maxq, minq } from "../utils/styleUtil";
-import StyledTypography from "./atoms/StyledTypography";
+import StyledTypography from "./atoms/styled_typography";
 import { Link } from "gatsby-link";
-import IconButton from "./atoms/IconButton";
+import IconButton from "./atoms/icon_button";
 
 const headerStyle: {
     height: any;
@@ -22,7 +22,11 @@ const headerStyle: {
 };
 
 const navStyle = {
-    li: css({ li: { marginRight: "3rem" } }),
+    li: css([{
+        listStyleType: 'none',
+        padding: 0,
+        margin: 0,
+    }, { li: { marginRight: "3rem" } }]),
 };
 
 const Header = () => {
