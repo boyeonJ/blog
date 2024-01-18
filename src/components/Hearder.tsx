@@ -76,7 +76,7 @@ const NavBar = () => {
                 <FlexBox direction="row">
                     {["blog", "resume"].map((value: string) => (
                         <li key={value}>
-                            <Link to={value}>
+                            <Link to={`../../${value}`}>
                                 <StyledTypography variant="h0" >{value.toUpperCase()}</StyledTypography>
                             </Link>
                         </li>
