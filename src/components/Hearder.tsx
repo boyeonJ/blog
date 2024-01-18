@@ -56,9 +56,11 @@ const Header = () => {
 const HeaderLeft = () => {
     return (
         <div className="logo">
-            <StyledTypography variant="h0" css={{ lineHeight: "38px" }}>
-                BOYEON
-            </StyledTypography>
+            <Link to={"../../blog"}>
+                <StyledTypography variant="h0" css={{ lineHeight: "38px" }}>
+                    BOYEON
+                </StyledTypography>
+            </Link>
         </div>
     );
 };
@@ -76,7 +78,7 @@ const NavBar = () => {
                 <FlexBox direction="row">
                     {["blog", "resume"].map((value: string) => (
                         <li key={value}>
-                            <Link to={value}>
+                            <Link to={`../../${value}`}>
                                 <StyledTypography variant="h0" >{value.toUpperCase()}</StyledTypography>
                             </Link>
                         </li>
