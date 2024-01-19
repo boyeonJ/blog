@@ -51,9 +51,39 @@ export type Post = {
     }
 }
 
-export type Remark = {
+export type GraphQLNode = {
     allMarkdownRemark: { edges: Post[] },
     file: {
         childImageSharp: { gatsbyImageData: IGatsbyImageData },
-    }
+    },
+    site: {
+        siteMetadata: MetaData
+    },
 };
+
+export type MetaData = {
+    title: string,
+    description: string,
+    siteUrl: string,
+    author: string,
+    image: string,
+    resumeInfo: {
+        experiences: Experience[],
+        projects: Project[]
+    }
+}
+
+export type Experience = {
+    name: string
+    position: string
+    period: string
+    description: string
+}
+
+export type Project = {
+    name: string
+    company: string
+    period: string
+    description: string
+    skills: string[]
+}

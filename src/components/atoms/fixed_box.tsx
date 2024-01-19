@@ -9,11 +9,12 @@ const FixedBox = ({
       className={className}
       css={{
         position: "fixed",
-        width: '100%'
+        width: '100%',
+        zIndex: '2'
       }}
     >
       {children}
-    </div>
+    </div >
   );
 };
 
