@@ -11,19 +11,13 @@ const Resume: FC<PageProps<GraphQLNode>> = ({
     data: {
         site: {
             siteMetadata: {
-                title,
-                description,
-                siteUrl,
-                author,
-                image,
                 resumeInfo
             }
         }
     } }) => {
 
-    const metaData = { title, description, siteUrl, author, image };
     return (
-        <Layout metaData={metaData}>
+        <Layout>
             <Experiences experiences={resumeInfo.experiences} />
             <Spacing size={1} css={{ border: `1px solid ${colors.gray1}`, margin: '30px 0' }} />
             <Projects projects={resumeInfo.projects} />
@@ -31,12 +25,11 @@ const Resume: FC<PageProps<GraphQLNode>> = ({
     )
 }
 
-
 const Experiences = ({ experiences }: { experiences: Experience[] }) => {
     return (
         <FlexBox gap="20px">
             {experiences.map((experience: Experience) => (
-                <FlexBox direction="row" gap="10px" align="center" css={{ width: '100vw' }}>
+                <FlexBox key={experience.name} direction="row" gap="10px" align="center" css={{ width: '100vw' }}>
                     <FlexBox css={{ width: '15%' }} gap="5px">
                         <StyledTypography variant="h1">{experience.name}</StyledTypography>
                         <StyledTypography variant="h3" color="gray2">{experience.position}</StyledTypography>
@@ -56,7 +49,7 @@ const Projects = ({ projects }: { projects: Project[] }) => {
     return (
         <FlexBox gap="20px">
             {projects.map((project: Project) => (
-                <FlexBox direction="row" gap="20px" align="center" css={{ width: '100vw' }}>
+                <FlexBox key={project.name} direction="row" gap="20px" align="center" css={{ width: '100vw' }}>
                     <FlexBox css={{ width: '15%' }} gap="5px">
                         <StyledTypography variant="h1">{project.name}</StyledTypography>
                         <StyledTypography variant="h3" color="gray2">{project.company}</StyledTypography>
@@ -65,7 +58,7 @@ const Projects = ({ projects }: { projects: Project[] }) => {
                     <FlexBox css={{ margin: '0 20px' }}>
                         <StyledTypography>{project.description}</StyledTypography>
                         <FlexBox direction="row" gap="5px">
-                            {project.skills.map((skill) => (<StyledTypography color="gray2">#{skill}</StyledTypography>))}
+                            {project.skills.map((skill) => (<StyledTypography key={skill} color="gray2">#{skill}</StyledTypography>))}
                         </FlexBox>
                     </FlexBox>
                 </FlexBox>
@@ -75,17 +68,12 @@ const Projects = ({ projects }: { projects: Project[] }) => {
 }
 
 export default Resume;
-
+export { Head } from "../components/head"
 
 export const getResumeInfo = graphql`
 query getResumeInfo {
   site {
     siteMetadata {
-      title,
-      description,
-      siteUrl,
-      author,
-      image,
       resumeInfo {
         experiences {
             name,

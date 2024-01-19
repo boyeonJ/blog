@@ -12,7 +12,6 @@ const Blog: FC<PageProps<GraphQLNode>> = ({
     file: {
       childImageSharp: { gatsbyImageData },
     },
-    site: { siteMetadata }
   }, location: { search } }) => {
 
 
@@ -49,17 +48,18 @@ const Blog: FC<PageProps<GraphQLNode>> = ({
   )
 
   return (
-    <Layout metaData={siteMetadata}>
+    <Layout>
       <CategoryList
         selectedCategory={selectedCategory}
         categoryList={categoryList}
       />
       <PostList posts={edges} selectedCategory={selectedCategory} />
-    </Layout >
+    </Layout>
   )
 }
 
 export default Blog
+export { Head } from "../components/head"
 
 export const getPostList = graphql`
 query getPostList {
