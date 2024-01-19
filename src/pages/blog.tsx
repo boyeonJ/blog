@@ -1,24 +1,19 @@
-import { graphql, type HeadFC, type PageProps } from "gatsby"
-import React, { FC, useMemo } from "react";
-import colors from "../constants/colors";
-import { Global, css } from "@emotion/react";
-import global from "../styles/global";
-import Header from "../components/hearder";
-import Footer from "../components/footer";
-import { Post, Remark } from "../models/types";
+import { graphql, type PageProps } from "gatsby"
+import { FC, useMemo } from "react";
+import { GraphQLNode, Post, } from "../models/types";
 import PostList from "../components/post_list";
-import { maxq } from "../utils/styleUtil";
 import queryString, { ParsedQuery } from 'query-string'
 import CategoryList, { CategoryListProps } from "../components/category_list";
 import Layout from "../components/layout";
 
-const IndexPage: FC<PageProps<Remark>> = ({
+const Blog: FC<PageProps<GraphQLNode>> = ({
   data: {
     allMarkdownRemark: { edges },
     file: {
       childImageSharp: { gatsbyImageData },
-    }
+    },
   }, location: { search } }) => {
+
 
   const parsed: ParsedQuery<string> = queryString.parse(search)
   const selectedCategory: string =
@@ -53,25 +48,22 @@ const IndexPage: FC<PageProps<Remark>> = ({
   )
 
   return (
-    <>
-      <Layout>
-        <CategoryList
-          selectedCategory={selectedCategory}
-          categoryList={categoryList}
-        />
-        <PostList posts={edges} selectedCategory={selectedCategory} />
-      </Layout>
-    </>
+    <Layout>
+      <CategoryList
+        selectedCategory={selectedCategory}
+        categoryList={categoryList}
+      />
+      <PostList posts={edges} selectedCategory={selectedCategory} />
+    </Layout>
   )
 }
 
-export default IndexPage
-
-export const Head: HeadFC = () => <title>Home Page</title>
-
+export default Blog
+export { Head } from "../components/head"
 
 export const getPostList = graphql`
 query getPostList {
+  
   allMarkdownRemark(
     sort: [{frontmatter: {date: DESC}}, {frontmatter: {title: ASC}}]
   ) {
@@ -99,6 +91,15 @@ query getPostList {
   file(name: {eq: "profile-image" }) {
     childImageSharp {
       gatsbyImageData(width: 120, height: 120)
+    }
+  }
+  site {
+    siteMetadata {
+      title,
+      description,
+      siteUrl,
+      author,
+      image
     }
   }
 }

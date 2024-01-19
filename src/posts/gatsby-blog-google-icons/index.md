@@ -3,7 +3,7 @@ date: '2024-01-15'
 title: 'gatsby blog 개발 트러블 슈팅 : google icons 추가'
 categories: ['gatsby', 'SEO', 'Optimization']
 summary: 'gatsby blog를 개발하면서 google icons 추가할때 경험한 트러블 슈팅을 공유합니다.'
-thumbnail: './1.png'
+thumbnail: '../1.png'
 ---
 
 ## gatsby-plugin-fontawesome-css 사용 안하기
@@ -95,8 +95,7 @@ export default Icon;
 
 `Only string literals are supported for the name property (use a string here instead)`
 
-![](https://velog.velcdn.com/images/boyeon_jeong/post/16e82c57-ea1b-4130-aeb3-64a5695f1011/image.png)
-
+![에러 캡쳐](./assets/google-icons-error.jpg)
 
 그래서 다시 다른 방법으로 고고뤼! 
 

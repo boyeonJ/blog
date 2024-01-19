@@ -18,7 +18,7 @@ const CategoryList: FC<CategoryListProps> = ({
         <div>
             {
                 Object.entries(categoryList).map(([name, count]) => (
-                    <Link to={`./?category=${name}`}>
+                    <Link to={`./?category=${name}`} key={name}>
                         <StyledTypography color="gray2" css={{ marginRight: '10px' }} >
                             #{name}({count})
                         </StyledTypography>

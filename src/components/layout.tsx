@@ -18,7 +18,9 @@ type LayoutProps = {
     children: ReactNode
 }
 
-const Layout: FC<LayoutProps> = ({ children }) => {
+const Layout: FC<LayoutProps> = ({
+    children,
+}) => {
 
     return (
         <div>
