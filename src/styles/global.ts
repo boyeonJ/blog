@@ -8,6 +8,19 @@ const defaultTheme = `
 --transition: all 0.3s linear;
 --spacing: 0.1rem;
 --radius: 0.25rem;
+--clr-grey-1: #878787;
+--clr-grey-2: #909090;
+--clr-grey-3: #9a9a9a;
+--clr-grey-4: #a4a4a4;
+--clr-grey-5: #aeaeae;
+--clr-grey-6: #b8b8b8;
+--clr-grey-7: #c1c1c1;
+--clr-grey-8: #cbcbcb;
+--clr-grey-9: #d5d5d5;
+--clr-grey-10: #dfdfdf;
+--clr-grey-11: #e9e9e9;
+--clr-grey-12: #f2f2f2;
+--clr-grey-13: #fcfcfc;
 `;
 
 //primary-1 : 배경
@@ -18,15 +31,11 @@ const lightTheme = `
 --clr-primary-2: #FBFBFB;
 --clr-primary-3: #212121;
 --clr-primary-3: #212121;
---clr-grey-1: #E9E9EB;
---clr-grey-2: #A4A4A4;
 `;
 const darkTheme = `
 --clr-primary-1: #000000;
 --clr-primary-2: #101015;
 --clr-primary-3: #FFFFFF;
---clr-grey-1: #36363A;
---clr-grey-2: #919193;
 `;
 
 const global = css`

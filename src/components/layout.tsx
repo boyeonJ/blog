@@ -1,6 +1,6 @@
 import { Global, css } from "@emotion/react"
 import colors from "../constants/colors"
-import { FC, ReactNode } from "react"
+import { FC, ReactNode, useEffect } from "react"
 import { maxq } from "../utils/styleUtil"
 import Header from "./hearder"
 import Footer from "./footer"
@@ -10,7 +10,7 @@ const indexStyles = {
     main: css({
         backgroundColor: colors.primary1,
         minHeight: "100vh",
-        paddingTop: "30px",
+        paddingTop: "50px",
     })
 }
 
@@ -30,7 +30,7 @@ const Layout: FC<LayoutProps> = ({
                 css={indexStyles.main}>
                 <div
                     css={{
-                        [maxq[2]]: { margin: "0 100px" },
+                        // [maxq[2]]: { margin: "0 100px" },
                         [maxq[1]]: { margin: "0px 20px" },
                         margin: "0 200px",
                     }}

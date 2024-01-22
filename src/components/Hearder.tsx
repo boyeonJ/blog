@@ -17,7 +17,7 @@ const headerStyle: {
         top: 0,
         padding: "1rem 2rem",
         backgroundColor: colors.primary1,
-        borderBottom: `2px solid ${colors.gray1}`,
+        borderBottom: `2px solid ${colors.gray9}`,
     }),
 };
 
@@ -57,7 +57,7 @@ const HeaderLeft = () => {
     return (
         <div className="logo">
             <Link to={"../../blog"}>
-                <StyledTypography variant="h0" css={{ lineHeight: "38px" }}>
+                <StyledTypography variant="h1">
                     BOYEON
                 </StyledTypography>
             </Link>
@@ -79,7 +79,7 @@ const NavBar = () => {
                     {["blog", "resume"].map((value: string) => (
                         <li key={value}>
                             <Link to={`../../${value}`}>
-                                <StyledTypography variant="h0" >{value.toUpperCase()}</StyledTypography>
+                                <StyledTypography variant="h1" >{value.toUpperCase()}</StyledTypography>
                             </Link>
                         </li>
                     ))}
