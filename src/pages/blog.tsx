@@ -6,16 +6,12 @@ import queryString, { ParsedQuery } from 'query-string'
 import CategoryList, { CategoryListProps } from "../components/category_list";
 import Layout from "../components/layout";
 import FlexBox from "../components/atoms/flex_box";
-import colors from "../constants/colors";
 import StyledTypography from "../components/atoms/styled_typography";
 import Spacing from "../components/atoms/spacing";
 
 const Blog: FC<PageProps<GraphQLNode>> = ({
   data: {
-    allMarkdownRemark: { edges },
-    file: {
-      childImageSharp: { gatsbyImageData },
-    },
+    allMarkdownRemark: { edges }
   }, location: { search } }) => {
 
 
@@ -53,8 +49,6 @@ const Blog: FC<PageProps<GraphQLNode>> = ({
 
   return (
     <Layout>
-      <Header />
-      <Spacing size={50} />
       <CategoryList
         selectedCategory={selectedCategory}
         categoryList={categoryList}
@@ -62,19 +56,6 @@ const Blog: FC<PageProps<GraphQLNode>> = ({
       <Spacing size={50} />
       <PostList posts={edges} selectedCategory={selectedCategory} />
     </Layout>
-  )
-}
-
-const Header = () => {
-  return (
-    <header>
-      <FlexBox>
-        <StyledTypography variant="h1">Blog</StyledTypography>
-        <StyledTypography color="gray2">
-          기술을 기록합니다.
-        </StyledTypography>
-      </FlexBox>
-    </header>
   )
 }
 
