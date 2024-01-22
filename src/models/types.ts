@@ -4,25 +4,28 @@ import { IGatsbyImageData } from 'gatsby-plugin-image'
 export type Color =
     | "primary1"
     | "primary2"
+    | "primary3"
     | "gray1"
     | "gray2"
-    | "primary3"
+    | "gray3"
 
 export type Variant =
-    | "h0"
     | "h1"
     | "h2"
     | "h3"
     | "h4"
     | "h5"
     | "h6"
-    | "h0B"
+    | "h7"
+    | "h8"
     | "h1B"
     | "h2B"
     | "h3B"
     | "h4B"
     | "h5B"
     | "h6B"
+    | "h7B"
+    | "h8B"
 
 
 export type FoundationProps = {
@@ -86,4 +89,6 @@ export type Project = {
     period: string
     description: string
     skills: string[]
+    what: string[]
+    results: string[]
 }

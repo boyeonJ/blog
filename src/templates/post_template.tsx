@@ -111,9 +111,7 @@ const PostTemplate: FC<PostTemplateProps> = function ({
             html,
             frontmatter: {
                 title,
-                summary,
                 date,
-                categories,
                 thumbnail: {
                     childImageSharp: { gatsbyImageData },
                 },
@@ -140,7 +138,8 @@ const PostTemplate: FC<PostTemplateProps> = function ({
 
 }
 
-export default PostTemplate
+export default PostTemplate;
+export { Head } from "../components/head"
 
 export const queryMarkdownDataBySlug = graphql`
   query queryMarkdownDataBySlug($slug: String) {

@@ -70,7 +70,7 @@ onClick = () => {
 
 ```jsx
 <Link to={"blog"}>
-    <StyledTypography variant="h0" >{value.toUpperCase()}</StyledTypography>
+    <StyledTypography variant="h1" >{value.toUpperCase()}</StyledTypography>
 </Link>
 ```
 
@@ -79,6 +79,6 @@ onClick = () => {
 ![프리로딩 동작 캡쳐](./assets/relative-link-success.gif)
 ```jsx
 <Link to={"../../blog"}>
-    <StyledTypography variant="h0" >{value.toUpperCase()}</StyledTypography>
+    <StyledTypography variant="h1" >{value.toUpperCase()}</StyledTypography>
 </Link>
 ```
