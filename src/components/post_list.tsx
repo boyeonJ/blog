@@ -4,67 +4,41 @@ import FlexBox from "./atoms/flex_box";
 import StyledTypography from "./atoms/styled_typography";
 import Icon from "./atoms/icon";
 import { Post } from "../models/types";
-import { useMemo } from "react";
+import useInfiniteScroll from "../hooks/use-infinite-scroll";
 
 const PostList = ({ posts, selectedCategory }: { posts: Post[], selectedCategory: string }) => {
-    const categoryPosts = useMemo(
-        () =>
-            posts.filter(({ node: { frontmatter: { categories } } }: Post) =>
-                selectedCategory !== 'All'
-                    ? categories.includes(selectedCategory)
-                    : true,
-            ),
-        [selectedCategory],
-    )
+    const { containerRef, slicedPosts } = useInfiniteScroll(selectedCategory, posts);
 
     return (
         <section>
-            <Header />
-            {categoryPosts.map((post, index) => (
-                <Article key={index} {...post} />
-            ))}
+            <div ref={containerRef}>
+                {slicedPosts.map((post, index) => (
+                    <Article key={index} {...post} />
+                ))}
+            </div>
         </section>)
-}
-
-const Header = () => {
-    return (
-        <header>
-            <FlexBox
-                css={{
-                    borderBottom: `2px solid ${colors.gray1}`,
-                    padding: "20px 0",
-                }}
-            >
-                <StyledTypography variant="h1">Blog</StyledTypography>
-                <StyledTypography color="gray2">
-                    기술을 기록합니다.
-                </StyledTypography>
-            </FlexBox>
-        </header>
-    )
 }
 
 const Article = ({ node: { frontmatter, fields: { slug } } }: Post) => {
     return (
         <article
             css={{
-                borderBottom: `2px solid ${colors.gray1}`,
+                // borderBottom: `2px solid ${colors.gray9}`,
                 padding: "30px 20px",
             }}
         >
             <Link to={slug} >
                 <FlexBox css={{ gap: "20px" }}>
-                    <StyledTypography variant="h1">{frontmatter.title}</StyledTypography>
+                    <StyledTypography variant="h3">{frontmatter.title}</StyledTypography>
+                    <StyledTypography color="gray2" variant="h6">
+                        {frontmatter.summary}
+                    </StyledTypography>
                     <FlexBox direction="row" css={{ gap: "5px" }}>
-                        <Icon size="1x" name="calendar" />
-                        <StyledTypography variant="h2" color="gray2">
+                        {/* <Icon size="1x" name="calendar" /> */}
+                        <StyledTypography color="gray2">
                             {frontmatter.date}
                         </StyledTypography>
                     </FlexBox>
-                    {/* <GatsbyImage image={frontmatter.thumbnail.childImageSharp.gatsbyImageData} alt="thumbnail" /> */}
-                    <StyledTypography variant="h2" color="gray2">
-                        {frontmatter.summary}
-                    </StyledTypography>
                 </FlexBox>
             </Link>
         </article >
