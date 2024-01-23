@@ -1,4 +1,4 @@
-import { graphql } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 import { FC } from 'react'
 import { Post } from '../models/types'
 import Layout from '../components/layout'
@@ -20,10 +20,9 @@ type PostTemplateProps = {
 const MarkdownRenderer = styled.div`
     padding: 30px 0;
     word-break: break-all;
-    line-height: 2;
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: 400;
-    color: ${colors.primary3}
+    color: ${colors.primary3};
 
     p {
         margin-bottom: 1.5rem;
@@ -34,8 +33,8 @@ const MarkdownRenderer = styled.div`
     h2,
     h3 {
         font-weight: 500;
-        margin-bottom: 30px;
-        margin-top: 30px;
+        margin-bottom: 20px;
+        margin-top: 70px;
     }
 
     hr + h1,
@@ -46,15 +45,15 @@ const MarkdownRenderer = styled.div`
     }
 
     h1 {
-        font-size: 2rem;
+        font-size: 2.5rem,
     }
 
     h2 {
-        font-size: 1.5rem;
+        font-size: 2.2rem,
     }
 
     h3 {
-        font-size: 1.3rem;
+        font-size: 1.8rem,
     }
 
     // Adjust Quotation Element Style
@@ -112,9 +111,7 @@ const PostTemplate: FC<PostTemplateProps> = function ({
             frontmatter: {
                 title,
                 date,
-                thumbnail: {
-                    childImageSharp: { gatsbyImageData },
-                },
+                categories
             },
         },
     } = edges[0]
@@ -122,18 +119,28 @@ const PostTemplate: FC<PostTemplateProps> = function ({
 
     return (
         <Layout>
-            <FlexBox css={{ gap: "30px" }}>
-                <StyledTypography variant='h1'>{title}</StyledTypography>
-                <FlexBox direction="row" css={{ gap: "5px" }}>
-                    <Icon size="1x" name="calendar" />
-                    <StyledTypography variant="h2" color="gray2">
+            <FlexBox css={{ gap: "10px" }}>
+                <StyledTypography variant='h1B'>{title}</StyledTypography>
+                <FlexBox gap="10px" align='flex-end' css={{ width: '100%' }}>
+                    <FlexBox direction='row' gap="5px">
+                        {categories.map((category: string) => (
+                            <Link to={`../../blog/?category=${category}`} key={category}>
+                                <div css={{ backgroundColor: colors.gray12, borderRadius: '8px', padding: '2px 7px' }}>
+                                    <StyledTypography>
+                                        {category}
+                                    </StyledTypography>
+                                </div>
+                            </Link>
+                        ))}
+                    </FlexBox>
+                    <StyledTypography>
                         {date}
                     </StyledTypography>
                 </FlexBox>
             </FlexBox>
-            <Spacing size={20} css={{ borderBottom: `1px solid ${colors.gray1}` }} />
+            <Spacing size={20} />
             <MarkdownRenderer dangerouslySetInnerHTML={{ __html: html }} />
-        </Layout>
+        </Layout >
     )
 
 }
@@ -152,14 +159,18 @@ export const queryMarkdownDataBySlug = graphql`
             summary
             date(formatString: "YYYY.MM.DD.")
             categories
-            thumbnail {
-              childImageSharp {
-                gatsbyImageData
-              }
-            }
           }
         }
       }
+    }
+    site {
+        siteMetadata {
+            title,
+            description,
+            siteUrl,
+            author,
+            image
+        }
     }
   }
 `

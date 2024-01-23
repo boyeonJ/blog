@@ -9,7 +9,7 @@ const Typography = ({
     ? (<span css={{
       display: "inline-block",
       strong: {
-        boxShadow: 'inset 0 -11px 0 orange',
+        boxShadow: 'inset 0 -6px 0 #48e3ff',
         lineHeight: '21px',
         fontWeight: 'inherit'
       }

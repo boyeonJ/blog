@@ -1,6 +1,6 @@
 const variants = {
     h1: {
-        fontSize: "2.5rem",
+        fontSize: "3rem",
         fontWeight: "400",
     },
     h2: {
@@ -32,7 +32,7 @@ const variants = {
         fontWeight: "400",
     },
     h1B: {
-        fontSize: "2.5rem",
+        fontSize: "3rem",
         fontWeight: "700",
     },
     h2B: {

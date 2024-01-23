@@ -8,6 +8,16 @@ export type Color =
     | "gray1"
     | "gray2"
     | "gray3"
+    | "gray4"
+    | "gray5"
+    | "gray6"
+    | "gray7"
+    | "gray8"
+    | "gray9"
+    | "gray10"
+    | "gray11"
+    | "gray12"
+    | "gray13"
 
 export type Variant =
     | "h1"
@@ -45,11 +55,6 @@ export type Post = {
             summary: string
             date: string
             categories: string[]
-            thumbnail: {
-                childImageSharp: {
-                    gatsbyImageData: IGatsbyImageData
-                }
-            }
         }
     }
 }
@@ -72,7 +77,9 @@ export type MetaData = {
     image: string,
     resumeInfo: {
         experiences: Experience[],
-        projects: Project[]
+        projects: Project[],
+        personalProjects: PersonalProject[],
+        skills: Skill[]
     }
 }
 
@@ -89,6 +96,19 @@ export type Project = {
     period: string
     description: string
     skills: string[]
-    what: string[]
+    tasks: string[]
     results: string[]
+}
+
+export type PersonalProject = {
+    name: string
+    period: string
+    description: string
+    skills: string[]
+    results: string[]
+}
+
+export type Skill = {
+    name: string
+    contents: string[]
 }

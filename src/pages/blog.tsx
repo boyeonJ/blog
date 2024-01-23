@@ -64,7 +64,6 @@ export { Head } from "../components/head"
 
 export const getPostList = graphql`
 query getPostList {
-  
   allMarkdownRemark(
     sort: [{frontmatter: {date: DESC}}, {frontmatter: {title: ASC}}]
   ) {

@@ -10,7 +10,7 @@ const indexStyles = {
     main: css({
         backgroundColor: colors.primary1,
         minHeight: "100vh",
-        paddingTop: "80px",
+        paddingTop: "110px",
     })
 }
 
@@ -32,7 +32,7 @@ const Layout: FC<LayoutProps> = ({
                     css={{
                         // [maxq[2]]: { margin: "0 100px" },
                         [maxq[1]]: { margin: "0px 20px" },
-                        margin: "0 250px",
+                        margin: "0 350px",
                     }}
                 >
                     {children}
