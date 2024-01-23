@@ -8,7 +8,7 @@ import { css } from "@emotion/react";
 
 const articleStyles = {
     article: css({ padding: "30px 0" }),
-    chip: css({ backgroundColor: colors.gray12, borderRadius: '8px', padding: '2px 7px' })
+    chip: css({ backgroundColor: colors.gray5, borderRadius: '8px', padding: '2px 7px' })
 }
 
 const PostList = ({ posts, selectedCategory }: { posts: Post[], selectedCategory: string }) => {
@@ -53,8 +53,8 @@ const CategoryChips = ({ categories, selectedCategory }: { categories: string[],
                 <Link to={`./?category=${category}`} key={category}>
                     <div css={articleStyles.chip}>
                         <StyledTypography
-                            color={selectedCategory === category ? "primary3" : "gray5"}
-                            variant={selectedCategory === category ? "h7B" : "h7"}>
+                            color={selectedCategory === category ? "primary3" : "gray13"}
+                            variant={selectedCategory === category ? "h7B" : "h7B"}>
                             {category}
                         </StyledTypography>
                     </div>
