@@ -3,7 +3,6 @@ date: '2024-01-20'
 title: 'Gatsby Infinite Scroll 구현하기'
 categories: ['gatsby', 'Optimization']
 summary: 'Infinite Scroll 구현하면서 발생한 여러가지 이슈들에 대해 기록하였습니다.'
-thumbnail: '../2.png'
 ---
 
 

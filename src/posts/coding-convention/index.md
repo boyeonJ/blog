@@ -3,7 +3,6 @@ date: '2024-01-18'
 title: 'coding-convention'
 categories: ['cleancode']
 summary: '일관성 있는 코드를 위한 나만의 코딩 컨벤션'
-thumbnail: '../2.png'
 ---
 
 # codeing convention

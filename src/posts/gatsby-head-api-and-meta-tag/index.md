@@ -3,7 +3,6 @@ date: '2024-01-19'
 title: 'Gatsby Head API'
 categories: ['gatsby']
 summary: 'Gatsby Head API에 대해 공식 문서를 읽어보고 정리한후 적용하기'
-thumbnail: '../2.png'
 ---
 
 # 검색엔진을 최적화

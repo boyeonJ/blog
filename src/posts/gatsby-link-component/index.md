@@ -3,7 +3,6 @@ date: '2024-01-18'
 title: 'Gatsby Link Component'
 categories: ['gatsby', 'Optimization']
 summary: 'Gatsby Link Component에 대해 공식 문서를 읽어보고 정리'
-thumbnail: './assets/preloading.jpg'
 ---
 
 Gatsby에서는 빌트인 Link Component(플러그인이 아닌 기본으로 제공하는 api)를 기본적으로 제공한다. 이 api는 내부 페이지들 사이를 높은 성능으로 라우트 해주고 프로그래밍적인 네비게이션을 제공해주는 navigation function을 포함한다.

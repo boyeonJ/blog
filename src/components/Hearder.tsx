@@ -12,12 +12,12 @@ const headerStyle: {
     height: any;
     container: any;
 } = {
-    height: css({ height: "90px" }),
+    height: css({ height: "120px" }),
     container: css({
         top: 0,
         padding: "1rem 2rem",
         backgroundColor: colors.primary1,
-        borderBottom: `2px solid ${colors.gray9}`,
+        borderBottom: `1px solid ${colors.gray9}`,
     }),
 };
 
