@@ -1,8 +1,8 @@
 import { Global, css } from "@emotion/react"
 import colors from "../constants/colors"
-import { FC, ReactNode, useEffect } from "react"
+import { FC, ReactNode } from "react"
 import { maxq } from "../utils/styleUtil"
-import Header from "./hearder"
+import Header from "./header"
 import Footer from "./footer"
 import global from "../styles/global"
 

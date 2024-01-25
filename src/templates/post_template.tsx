@@ -8,7 +8,6 @@ import colors from '../constants/colors'
 import FlexBox from '../components/atoms/flex_box'
 import StyledTypography from '../components/atoms/styled_typography'
 import Spacing from '../components/atoms/spacing'
-import Icon from '../components/atoms/icon'
 
 
 type PostTemplateProps = {
