@@ -50,15 +50,13 @@ const CategoryChips = ({ categories, selectedCategory }: { categories: string[],
     return (
         <FlexBox direction="row" gap="5px">
             {categories.map((category: string) => (
-                <Link to={`./?category=${category}`} key={category}>
-                    <div css={articleStyles.chip}>
-                        <StyledTypography
-                            color={selectedCategory === category ? "primary3" : "gray13"}
-                            variant={selectedCategory === category ? "h7B" : "h7B"}>
-                            {category}
-                        </StyledTypography>
-                    </div>
-                </Link>
+                <div key={category} css={articleStyles.chip}>
+                    <StyledTypography
+                        color={selectedCategory === category ? "primary3" : "gray13"}
+                        variant={selectedCategory === category ? "h7B" : "h7B"}>
+                        {category}
+                    </StyledTypography>
+                </div>
             ))}
         </FlexBox>
     )

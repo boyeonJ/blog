@@ -56,7 +56,7 @@ const Header = () => {
 const HeaderLeft = () => {
     return (
         <div className="logo">
-            <Link to={"../../blog"}>
+            <Link to={"../../"}>
                 <StyledTypography variant="h1">
                     BOYEON
                 </StyledTypography>
@@ -76,13 +76,16 @@ const NavBar = () => {
         >
             <ul css={navStyle.li}>
                 <FlexBox direction="row">
-                    {["blog", "resume"].map((value: string) => (
-                        <li key={value}>
-                            <Link to={`../../${value}`}>
-                                <StyledTypography variant="h1" >{value.toUpperCase()}</StyledTypography>
-                            </Link>
-                        </li>
-                    ))}
+                    <li>
+                        <Link to={`../../`}>
+                            <StyledTypography variant="h1" >BLOG</StyledTypography>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to={`../../resume`}>
+                            <StyledTypography variant="h1" >RESUME</StyledTypography>
+                        </Link>
+                    </li>
                 </FlexBox>
             </ul>
         </nav>

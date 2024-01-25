@@ -31,7 +31,7 @@ const Layout: FC<LayoutProps> = ({
                 <div
                     css={{
                         // [maxq[2]]: { margin: "0 100px" },
-                        [maxq[1]]: { margin: "0px 20px" },
+                        [maxq[3]]: { margin: "0px 20px" },
                         margin: "0 350px",
                     }}
                 >

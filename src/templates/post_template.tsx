@@ -82,6 +82,20 @@ const MarkdownRenderer = styled.div`
         text-decoration: underline;
     }
 
+    table thead th {
+        border-bottom: 1px solid #ccc;
+    }
+
+    table td {
+        border-bottom: 1px solid #ccc;
+    }
+
+    strong {
+        box-shadow: inset 0 -6px 0 ${colors.primary4};
+        line-height: 21px;
+        font-weight: inherit;
+    }
+
     // Adjust Code Style
     pre[class*='language-'] {
         margin: 30px 0;
@@ -124,7 +138,7 @@ const PostTemplate: FC<PostTemplateProps> = function ({
                 <FlexBox gap="10px" align='flex-end' css={{ width: '100%' }}>
                     <FlexBox direction='row' gap="5px">
                         {categories.map((category: string) => (
-                            <Link to={`../../blog/?category=${category}`} key={category}>
+                            <Link to={`../post/?category=${category}`} key={category}>
                                 <div css={{ backgroundColor: colors.gray12, borderRadius: '8px', padding: '2px 7px' }}>
                                     <StyledTypography>
                                         {category}

@@ -29,9 +29,6 @@ const Resume: FC<PageProps<GraphQLNode>> = ({
                 <PersonalProjects projects={personalProjects} />
                 <Skills skills={skills} />
             </FlexBox>
-            {/* <ExperiencesBack experiences={resumeInfo.experiences} />
-            <Spacing size={1} css={{ border: `1px solid ${colors.gray1}`, margin: '30px 0' }} />
-            <Projects projects={resumeInfo.projects} /> */}
         </Layout >
     )
 }
@@ -164,7 +161,7 @@ const Skills = ({ skills }: { skills: Skill[] }) => {
                     <StyledTypography variant="h4">{skill.name}</StyledTypography>
                     <ul>
                         {skill.contents.map((content: string) => (
-                            <li>
+                            <li key={content}>
                                 <StyledTypography innerHtml>{content}</StyledTypography>
                             </li>
                         ))}
