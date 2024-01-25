@@ -1,5 +1,6 @@
 import { Link, graphql } from 'gatsby'
 import { FC } from 'react'
+import React from 'react'
 import { Post } from '../models/types'
 import Layout from '../components/layout'
 import styled from '@emotion/styled'
@@ -8,6 +9,7 @@ import FlexBox from '../components/atoms/flex_box'
 import StyledTypography from '../components/atoms/styled_typography'
 import Spacing from '../components/atoms/spacing'
 import Icon from '../components/atoms/icon'
+
 
 type PostTemplateProps = {
     data: {
@@ -132,7 +134,7 @@ const PostTemplate: FC<PostTemplateProps> = function ({
 
 
     return (
-        <Layout>
+        <>
             <FlexBox css={{ gap: "10px" }}>
                 <StyledTypography variant='h1B'>{title}</StyledTypography>
                 <FlexBox gap="10px" align='flex-end' css={{ width: '100%' }}>
@@ -154,7 +156,7 @@ const PostTemplate: FC<PostTemplateProps> = function ({
             </FlexBox>
             <Spacing size={20} />
             <MarkdownRenderer dangerouslySetInnerHTML={{ __html: html }} />
-        </Layout >
+        </>
     )
 
 }

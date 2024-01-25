@@ -22,14 +22,12 @@ const Resume: FC<PageProps<GraphQLNode>> = ({
     } }) => {
 
     return (
-        <Layout>
-            <FlexBox gap={"100px"}>
-                <Info />
-                <Experiences experiences={experiences} projects={projects} />
-                <PersonalProjects projects={personalProjects} />
-                <Skills skills={skills} />
-            </FlexBox>
-        </Layout >
+        <FlexBox gap={"100px"}>
+            <Info />
+            <Experiences experiences={experiences} projects={projects} />
+            <PersonalProjects projects={personalProjects} />
+            <Skills skills={skills} />
+        </FlexBox>
     )
 }
 
