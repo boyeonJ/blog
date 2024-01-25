@@ -1,7 +1,7 @@
 ---
 date: '2024-01-24'
 title: 'Gatsby에서 layout 컴포넌트는 매번 재랜더링 되는것인가?'
-categories: ['interview']
+categories: ['Gatsby', 'Optimization']
 summary: '페이지마다 공통적으로 사용되는 컴포넌트를 Layout component라고 했을때 이 컴포넌트가 매번 재 랜더링 해야 하는지에 대한 고민이 담긴 글입니다.'
 ---
 
@@ -20,10 +20,6 @@ react route dom에서는 outlet으로 구현 가능했다.
 
 저는 먼저 이 문제를 해결하기 위해서 앱의 루트 요소를 감싸기 위한 함수인 wrapRootElement를 사용해서 공통적으로 사용되는 Layout component가 앱이 로드될 때 한 번 실행되도록 구현했습니다.
 
-이렇게 구현한 결과 header **전체가 리랜더링** 되지 않았고, 페이지가 이동되더라도 dark mode와 관련된 **state가 초기화** 되지 않았습니다.
-
-![wrap-root-element-header-no-render](./assets/wrap-root-element-header-no-render.png)
-
 ```jsx
 export const wrapRootElement = ({
     element
@@ -34,21 +30,22 @@ export const wrapRootElement = ({
 }
 ```
 
+이렇게 구현한 결과 header **전체가 리랜더링** 되지 않았고, 페이지가 이동되더라도 dark mode와 관련된 **state가 초기화** 되지 않았습니다.
+
+![wrap-root-element-header-no-render](./assets/wrap-root-element-header-no-render.png)
+
 ![wrap-root-element-randering-gif](./assets/wrap-root-element-randering-gif.gif)
 
 ---
 
 # wrapPageElement
 그렇지만 위의 방법대로 구현한 결과 다음과 같은 오류가 발생했습니다.
-![wrap-root-element-error-log](./assets/wrap-root-element-error-log.png)
 
-wrapRootElement in gatsby-ssr/gatsby-browser doesn't contain UI elements라고 한다. 공식홈페이지를 다시 읽어보니 wrapRootElement로는 **Privider만 export** 할수 있고 **UI elements가 담기 컴포넌트**는 wrapPageElement에서 사용할 수 있었다.
+> wrapRootElement in gatsby-ssr/gatsby-browser doesn't contain UI elements 
+
+공식홈페이지를 다시 읽어보니 wrapRootElement로는 **Privider만 export** 할수 있고 **UI elements가 담기 컴포넌트**는 wrapPageElement에서 사용할 수 있었다.
 
 wrapPageElement는 페이지의 루트 요소를 감싸는 컴포넌트이지만 페이지 이동시에도 unmounted 되지 않는다. 따라서 내가 작성한 Layout 컴포넌트를 wrapRootElement가 아닌 wrapRootElement API를 통해 export 해주는 방식으로 수정했습니다.
-
-wrapPageElement로 구현한 경우 page 이동시 매번 layout component 요소들이 **재랜더링** 되지만 내부의 **state는 초기화** 되지 않았습니다.
-
-![wrap-page-element-header-render](./assets/wrap-page-element-header-render.png)
 
 ```jsx
 export const wrapPageElement = ({
@@ -60,7 +57,12 @@ export const wrapPageElement = ({
 }
 ```
 
-![wrap-page-element-randering-gif](./assets/wrap-page-element-randering-gif.gif.png)
+wrapPageElement로 구현한 경우 page 이동시 매번 layout component 요소들이 **재랜더링** 되지만 내부의 **state는 초기화** 되지 않았습니다.
+
+![wrap-page-element-header-render](./assets/wrap-page-element-header-render.png)
+
+
+![wrap-page-element-randering-gif](./assets/wrap-page-element-randering-gif.gif)
 
 ---
 # Profiler

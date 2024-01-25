@@ -32,33 +32,20 @@ const navStyle = {
 
 const Header = () => {
     return (
-        <Profiler id="NetworkImage"
-            onRender={(
-                id,
-                phase,
-                actualDuration,
-                baseDuration,
-                startTime,
-                commitTime,
-                interactions,
-            ) => {
-                console.log(phase);
-            }}>
-            <header css={headerStyle.height}>
-                <FixedBox css={[headerStyle.height, headerStyle.container]}>
-                    <FlexBox
-                        direction="row"
-                        align="center"
-                        justify="space-between"
-                        css={{ height: "100%" }}
-                    >
-                        <HeaderLeft />
-                        <NavBar />
-                        <HeaderRight />
-                    </FlexBox>
-                </FixedBox>
-            </header>
-        </Profiler>
+        <header css={headerStyle.height}>
+            <FixedBox css={[headerStyle.height, headerStyle.container]}>
+                <FlexBox
+                    direction="row"
+                    align="center"
+                    justify="space-between"
+                    css={{ height: "100%" }}
+                >
+                    <HeaderLeft />
+                    <NavBar />
+                    <HeaderRight />
+                </FlexBox>
+            </FixedBox>
+        </header>
     );
 };
 

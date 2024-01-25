@@ -84,12 +84,8 @@ const MarkdownRenderer = styled.div`
         text-decoration: underline;
     }
 
-    table thead th {
-        border-bottom: 1px solid #ccc;
-    }
-
-    table td {
-        border-bottom: 1px solid #ccc;
+    img {
+        max-width: 100%;
     }
 
     strong {
