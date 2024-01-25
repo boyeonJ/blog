@@ -32,40 +32,27 @@ const navStyle = {
 
 const Header = () => {
     return (
-        <Profiler id="NetworkImage"
-            onRender={(
-                id,
-                phase,
-                actualDuration,
-                baseDuration,
-                startTime,
-                commitTime,
-                interactions,
-            ) => {
-                console.log(phase);
-            }}>
-            <header css={headerStyle.height}>
-                <FixedBox css={[headerStyle.height, headerStyle.container]}>
-                    <FlexBox
-                        direction="row"
-                        align="center"
-                        justify="space-between"
-                        css={{ height: "100%" }}
-                    >
-                        <HeaderLeft />
-                        <NavBar />
-                        <HeaderRight />
-                    </FlexBox>
-                </FixedBox>
-            </header>
-        </Profiler>
+        <header css={headerStyle.height}>
+            <FixedBox css={[headerStyle.height, headerStyle.container]}>
+                <FlexBox
+                    direction="row"
+                    align="center"
+                    justify="space-between"
+                    css={{ height: "100%" }}
+                >
+                    <HeaderLeft />
+                    <NavBar />
+                    <HeaderRight />
+                </FlexBox>
+            </FixedBox>
+        </header>
     );
 };
 
 const HeaderLeft = () => {
     return (
         <div className="logo">
-            <Link to={"../../blog"}>
+            <Link to={"../../"}>
                 <StyledTypography variant="h1">
                     BOYEON
                 </StyledTypography>
@@ -85,13 +72,16 @@ const NavBar = () => {
         >
             <ul css={navStyle.li}>
                 <FlexBox direction="row">
-                    {["blog", "resume"].map((value: string) => (
-                        <li key={value}>
-                            <Link to={`../../${value}`}>
-                                <StyledTypography variant="h1" >{value.toUpperCase()}</StyledTypography>
-                            </Link>
-                        </li>
-                    ))}
+                    <li>
+                        <Link to={`../../`}>
+                            <StyledTypography variant="h1" >BLOG</StyledTypography>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to={`../../resume`}>
+                            <StyledTypography variant="h1" >RESUME</StyledTypography>
+                        </Link>
+                    </li>
                 </FlexBox>
             </ul>
         </nav>

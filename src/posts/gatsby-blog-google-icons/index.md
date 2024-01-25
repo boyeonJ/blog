@@ -77,7 +77,6 @@ const Icon = ({
   size = "4x",
   color = "primary3",
 }: IconProps & FoundationProps) => {
-  console.log(name)
   return (
     <span className={className}>
       <FontAwesomeIcon icon={icon({ name, style: 'solid' })} size={size} color={colors[color]} />

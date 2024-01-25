@@ -159,7 +159,7 @@ const Skills = ({ skills }: { skills: Skill[] }) => {
                     <StyledTypography variant="h4">{skill.name}</StyledTypography>
                     <ul>
                         {skill.contents.map((content: string) => (
-                            <li>
+                            <li key={content}>
                                 <StyledTypography innerHtml>{content}</StyledTypography>
                             </li>
                         ))}
