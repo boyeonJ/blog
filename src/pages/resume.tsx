@@ -22,17 +22,12 @@ const Resume: FC<PageProps<GraphQLNode>> = ({
     } }) => {
 
     return (
-        <Layout>
-            <FlexBox gap={"100px"}>
-                <Info />
-                <Experiences experiences={experiences} projects={projects} />
-                <PersonalProjects projects={personalProjects} />
-                <Skills skills={skills} />
-            </FlexBox>
-            {/* <ExperiencesBack experiences={resumeInfo.experiences} />
-            <Spacing size={1} css={{ border: `1px solid ${colors.gray1}`, margin: '30px 0' }} />
-            <Projects projects={resumeInfo.projects} /> */}
-        </Layout >
+        <FlexBox gap={"100px"}>
+            <Info />
+            <Experiences experiences={experiences} projects={projects} />
+            <PersonalProjects projects={personalProjects} />
+            <Skills skills={skills} />
+        </FlexBox>
     )
 }
 
