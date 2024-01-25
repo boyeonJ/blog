@@ -1,5 +1,6 @@
 import { graphql, type PageProps } from "gatsby"
 import { FC, useMemo } from "react";
+import React from "react";
 import { GraphQLNode, Post, } from "../models/types";
 import PostList from "../components/post_list";
 import queryString, { ParsedQuery } from 'query-string'
@@ -48,14 +49,14 @@ const Blog: FC<PageProps<GraphQLNode>> = ({
   )
 
   return (
-    <Layout>
+    <>
       <CategoryList
         selectedCategory={selectedCategory}
         categoryList={categoryList}
       />
       <Spacing size={50} />
       <PostList posts={edges} selectedCategory={selectedCategory} />
-    </Layout>
+    </>
   )
 }
 

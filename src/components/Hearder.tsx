@@ -1,5 +1,5 @@
 import { css } from "@emotion/react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Profiler } from "react";
 import colors from "../constants/colors";
 import FixedBox from "./atoms/fixed_box";
 import FlexBox from "./atoms/flex_box";
@@ -7,6 +7,7 @@ import { maxq, minq } from "../utils/styleUtil";
 import StyledTypography from "./atoms/styled_typography";
 import { Link } from "gatsby-link";
 import IconButton from "./atoms/icon_button";
+
 
 const headerStyle: {
     height: any;
@@ -30,26 +31,34 @@ const navStyle = {
 };
 
 const Header = () => {
-    const [theme, setTheme] = useState("light");
-    useEffect(() => {
-        document.body.dataset.theme = theme;
-    }, [theme]);
-
     return (
-        <header css={headerStyle.height}>
-            <FixedBox css={[headerStyle.height, headerStyle.container]}>
-                <FlexBox
-                    direction="row"
-                    align="center"
-                    justify="space-between"
-                    css={{ height: "100%" }}
-                >
-                    <HeaderLeft />
-                    <NavBar />
-                    <HeaderRight setTheme={setTheme} theme={theme} />
-                </FlexBox>
-            </FixedBox>
-        </header>
+        <Profiler id="NetworkImage"
+            onRender={(
+                id,
+                phase,
+                actualDuration,
+                baseDuration,
+                startTime,
+                commitTime,
+                interactions,
+            ) => {
+                console.log(phase);
+            }}>
+            <header css={headerStyle.height}>
+                <FixedBox css={[headerStyle.height, headerStyle.container]}>
+                    <FlexBox
+                        direction="row"
+                        align="center"
+                        justify="space-between"
+                        css={{ height: "100%" }}
+                    >
+                        <HeaderLeft />
+                        <NavBar />
+                        <HeaderRight />
+                    </FlexBox>
+                </FixedBox>
+            </header>
+        </Profiler>
     );
 };
 
@@ -89,7 +98,14 @@ const NavBar = () => {
     );
 };
 
-const HeaderRight = ({ setTheme, theme }: any) => {
+const HeaderRight = () => {
+    const [theme, setTheme] = useState("light");
+
+    useEffect(() => {
+        document.body.dataset.theme = theme;
+    }, [theme]);
+
+
     return (
         <FlexBox direction="row" align="center" css={{ gap: "20px" }}>
             <IconButton
