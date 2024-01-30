@@ -12,7 +12,8 @@ type FlexBoxProps = {
   | "space-evenly";
   align?: "center" | "flex-start" | "flex-end" | "stretch";
   width?: string;
-  gap?: string
+  gap?: string;
+  wrap?: "wrap" | "wrap-reverse"
 };
 
 const FlexBox = ({
@@ -23,6 +24,7 @@ const FlexBox = ({
   align = "flex-start",
   width,
   gap,
+  wrap,
 }: FlexBoxProps & FoundationProps) => {
   return (
     <div
@@ -33,7 +35,8 @@ const FlexBox = ({
         justifyContent: justify,
         alignItems: align,
         width: width,
-        gap: gap
+        gap: gap,
+        flexWrap: wrap
       }}
     >
       {children}

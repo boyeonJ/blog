@@ -5,9 +5,6 @@ import { GraphQLNode, Post, } from "../models/types";
 import PostList from "../components/post_list";
 import queryString, { ParsedQuery } from 'query-string'
 import CategoryList, { CategoryListProps } from "../components/category_list";
-import Layout from "../components/layout";
-import FlexBox from "../components/atoms/flex_box";
-import StyledTypography from "../components/atoms/styled_typography";
 import Spacing from "../components/atoms/spacing";
 
 const Blog: FC<PageProps<GraphQLNode>> = ({

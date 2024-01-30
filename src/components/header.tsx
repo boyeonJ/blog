@@ -1,4 +1,4 @@
-import { css } from "@emotion/react";
+import { SerializedStyles, css } from "@emotion/react";
 import { useEffect, useState, Profiler } from "react";
 import colors from "../constants/colors";
 import FixedBox from "./atoms/fixed_box";
@@ -9,11 +9,11 @@ import { Link } from "gatsby-link";
 import IconButton from "./atoms/icon_button";
 
 
-const headerStyle: {
-    height: any;
-    container: any;
+const headerStyles: {
+    [key: string]: SerializedStyles
 } = {
     height: css({ height: "120px" }),
+    innerHeight: css({ height: "100%" }),
     container: css({
         top: 0,
         padding: "1rem 2rem",
@@ -22,30 +22,47 @@ const headerStyle: {
     }),
 };
 
-const navStyle = {
-    li: css([{
+const navStyles: {
+    [key: string]: SerializedStyles
+} = {
+    ul: css([{
         listStyleType: 'none',
         padding: 0,
         margin: 0,
     }, { li: { marginRight: "3rem" } }]),
 };
 
+const mediaStyles: {
+    [key: string]: SerializedStyles
+} = {
+    maxNone: css({
+        [maxq[1]]: {
+            display: "none",
+        },
+    }),
+    minNone: css({
+        [minq[1]]: {
+            display: "none",
+        },
+    }),
+}
+
 const Header = () => {
     return (
-        <header css={headerStyle.height}>
-            <FixedBox css={[headerStyle.height, headerStyle.container]}>
+        <header css={headerStyles.height}>
+            <FixedBox css={[headerStyles.height, headerStyles.container]}>
                 <FlexBox
                     direction="row"
                     align="center"
                     justify="space-between"
-                    css={{ height: "100%" }}
+                    css={headerStyles.innerHeight}
                 >
                     <HeaderLeft />
                     <NavBar />
                     <HeaderRight />
                 </FlexBox>
             </FixedBox>
-        </header>
+        </header >
     );
 };
 
@@ -64,13 +81,9 @@ const HeaderLeft = () => {
 const NavBar = () => {
     return (
         <nav
-            css={{
-                [maxq[1]]: {
-                    display: "none",
-                },
-            }}
+            css={mediaStyles.maxNone}
         >
-            <ul css={navStyle.li}>
+            <ul css={navStyles.ul}>
                 <FlexBox direction="row">
                     <li>
                         <Link to={`../../`}>
@@ -97,18 +110,14 @@ const HeaderRight = () => {
 
 
     return (
-        <FlexBox direction="row" align="center" css={{ gap: "20px" }}>
+        <FlexBox direction="row" align="center" gap="20px">
             <IconButton
                 onClick={() => setTheme("light" === theme ? "dark" : "light")}
                 name={"moon"}
             />
             <IconButton
                 name="bars"
-                css={{
-                    [minq[1]]: {
-                        display: "none",
-                    },
-                }}
+                css={mediaStyles.minNone}
             />
         </FlexBox>
     );
