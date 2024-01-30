@@ -111,11 +111,11 @@ const MarkdownRenderer = styled.div`
     }
 `
 
-const PostTemplate: FC<PostTemplateProps> = function ({
+const PostTemplate = function ({
     data: {
         allMarkdownRemark: { edges },
     },
-}) {
+}: PostTemplateProps) {
     const {
         node: {
             html,

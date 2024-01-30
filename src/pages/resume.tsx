@@ -7,7 +7,7 @@ import Layout from "../components/layout"
 import colors from "../constants/colors"
 import { Experience, GraphQLNode, PersonalProject, Project, Skill } from "../models/types"
 
-const Resume: FC<PageProps<GraphQLNode>> = ({
+const Resume = ({
     data: {
         site: {
             siteMetadata: {
@@ -19,7 +19,7 @@ const Resume: FC<PageProps<GraphQLNode>> = ({
                 }
             }
         },
-    } }) => {
+    } }: PageProps<GraphQLNode>) => {
 
     return (
         <FlexBox gap={"100px"}>

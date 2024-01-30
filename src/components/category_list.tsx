@@ -21,7 +21,7 @@ const categoryStyles: { [key: string]: SerializedStyles } = {
     })
 }
 
-const CategoryList: FC<CategoryListProps> = ({
+const CategoryList = ({
     selectedCategory,
     categoryList,
 }: CategoryListProps) => {

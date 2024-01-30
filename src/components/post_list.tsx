@@ -12,14 +12,14 @@ const articleStyles = {
     chip: css({ backgroundColor: colors.gray5, borderRadius: '8px', padding: '2px 7px' })
 }
 
-const PostList = ({ posts, selectedCategory }: { posts: Post[], selectedCategory: string }) => {
+function PostList({ posts, selectedCategory }: { posts: Post[], selectedCategory: string }) {
     const { containerRef, slicedPosts } = useInfiniteScroll(selectedCategory, posts);
 
     return (
         <section>
             <div ref={containerRef}>
-                {slicedPosts.map((post, index) => (
-                    <Article key={index} {...post} selectedCategory={selectedCategory} />
+                {slicedPosts.map((post) => (
+                    <Article key={post.node.id} {...post} selectedCategory={selectedCategory} />
                 ))}
             </div>
         </section>)

@@ -7,10 +7,10 @@ import queryString, { ParsedQuery } from 'query-string'
 import CategoryList, { CategoryListProps } from "../components/category_list";
 import Spacing from "../components/atoms/spacing";
 
-const Blog: FC<PageProps<GraphQLNode>> = ({
+const Blog = ({
   data: {
     allMarkdownRemark: { edges }
-  }, location: { search } }) => {
+  }, location: { search } }: PageProps<GraphQLNode>) => {
 
 
   const parsed: ParsedQuery<string> = queryString.parse(search)

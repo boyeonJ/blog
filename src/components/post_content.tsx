@@ -4,7 +4,7 @@ interface PostContentProps {
     html: string
 }
 
-const PostContent: FC<PostContentProps> = function ({ html }) {
+const PostContent = function ({ html }: PostContentProps) {
     return <div dangerouslySetInnerHTML={{ __html: html }} />
 }
 
