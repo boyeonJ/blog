@@ -62,7 +62,7 @@ const Header = () => {
                     <HeaderRight />
                 </FlexBox>
             </FixedBox>
-        </header >
+        </header>
     );
 };
 
@@ -86,7 +86,7 @@ const NavBar = () => {
             <ul css={navStyles.ul}>
                 <FlexBox direction="row">
                     <li>
-                        <Link to={`../../`}>
+                        <Link to={`../../../`}>
                             <StyledTypography variant="h1" >BLOG</StyledTypography>
                         </Link>
                     </li>
