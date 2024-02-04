@@ -35,15 +35,15 @@ const Info = () => {
     return (
         <FlexBox>
             <StyledTypography variant="h2B">정보연</StyledTypography>
-            <StyledTypography variant="h2B">Frontend Developer</StyledTypography>
+            <StyledTypography variant="h2B">Software Developer</StyledTypography>
             <Spacing size={20} />
             <StyledTypography color="gray2">
-                안녕하세요. Frontend Developer 정보연입니다. <br /><br />
+                안녕하세요. <br />Software Developer 정보연입니다. <br /><br />
 
-                React와 Typescript를 중심을 개발합니다.<br />
-                클린한 코드를 작성하고 최적화하는 것을 목표로 개발합니다.<br /><br />
+                React와 Typescript를 중심으로 개발합니다.<br />
+                생산성을 위한 클린한 코드와 사용자 경험을 위한 최적화에 관심이 많습니다.  <br /><br />
 
-                BespinGlobal 에서 2년 11개월, Fasto에서 9개월 <br />총 3년 8개월 Frontend Developer로 근무했던 경험이 있습니다.<br />
+                BespinGlobal 에서 2년 11개월, Fasto에서 9개월 <br />총 3년 8개월 Software Developer 경력이 있습니다.<br />
             </StyledTypography>
         </FlexBox >
     )

@@ -4,7 +4,7 @@ const config: GatsbyConfig = {
   siteMetadata: {
     title: '정보연 블로그',
     siteUrl: `https://www.boyeon.blog.site`,
-    description: '안녕하세요, 프론트엔드 개발자 정보연이라고 합니다.',
+    description: '안녕하세요, 소프트웨어 개발자 정보연입니다.',
     author: '정보연',
     image: 'https://github.com/boyeonJ/reactBlog/assets/32887635/ff7bb0c3-4593-4c97-a4a0-178ddbe0622e',
     resumeInfo: {
@@ -36,6 +36,7 @@ const config: GatsbyConfig = {
           name: '자바스크립트',
           contents: [
             'reduce, map, filter 등 다양한 <strong>고차함수</strong>을 활용합니다.',
+            '선언적으로 코드를 작성하기 위해 노력합니다.',
             '<strong>함수형 프로그래밍</strong>에 관심이 많고, 합성, 커링, 재귀과 같은 기법을 사용할 수 있습니다.',
             '<strong>Vanilla JavaScript</strong>를 활용해 DOM 조작하는 데 익숙',
             '<strong>크로스 브라우징</strong> 이슈를 해결하여 <strong>사용자 경험</strong>을 높인 경험이 있습니다.',
@@ -103,23 +104,24 @@ const config: GatsbyConfig = {
           period: '2023.03~2023.08',
           description: '파스토 셀프는 집에서도, 1인 기업도 재고관리와 택배발송이 가능한 솔루션입니다. 유지보수 및 기능개선(쇼핑몰 통합, 디자인 리뉴얼)을 위해 thymeleaf에서 React로 전환하였습니다.',
           skills: [
-            'next.js',
-            'typescript',
-            'react-query(TanStack Query v4)',
+            'Next.js',
+            'Typescript',
+            'React Query(TanStack Query v4)',
             'Redux Toolkit',
             'React Table(TanStack Table v8)',
-            'React-Hook-Form'
+            'React Hook Form'
           ],
           tasks: [
             '사용자 관리 페이지 개발',
             'ASIS Service log 분석 및 mock api 생성'
           ],
           results: [
-            '해당 솔루션의 핵심 기능인 쇼핑몰 연동 및 주문 페이지(신규주문, 배송, 취소, 반품, 교환 관리)를 개발하였습니다.',
-            '반복되는 컴포넌트에 <strong>atomic, compound component 패턴</strong>을 적용하여 DX를 개선하였습니다.',
-            '<strong>디자인 시스템</strong>을 구축하여 일관된 디자인을 빠르게 개발하였습니다',
-            '최적화, UX/DX 개선을 위한 React-Query, React-Table, React-Hook-form 등 다양한 <strong>최신 기술</strong>을 적용하였습니다.',
-            '보일러 플레이트를 줄이기 위해 Headless Component로 공통된 기능 부분을 추상화 하였습니다.'
+            'Atomic Design Pattern, Compound Component로 <strong>디자인 시스템</strong>을 개발하여 개발 생산성 향상(코드량 50% 이상 감소)',
+            '<strong>비즈니스 로직(React Query) 코드를 hooks으로 분리</strong> 하여 컴포넌트 복잡성을 줄임',
+            '<strong>useContext</strong>로 주문 페이지, 상세페이지 리랜더링 최적화',
+            '상세 페이지 이미지, React Table에 <strong>스켈레톤(lazy loading)</strong>을 적용하여 CLS 개선',
+            'React Table custom hooks에 <strong>재네릭 type</strong>을 적용하여 코드 안정성 향상',
+            '해당 솔루션의 <strong>핵심 기능</strong>인 쇼핑몰 연동 및 주문 페이지(신규주문, 배송, 취소, 반품, 교환 관리)를 개발'
           ]
         },
         {
@@ -128,9 +130,9 @@ const config: GatsbyConfig = {
           period: '2023.01~2023.03',
           description: '사내 정산 관련 백 오피스를 Client와 Server로 분리하고 RESTful한 API로 리뉴얼하였습니다.',
           skills: [
-            'react',
-            'typescript',
-            'react-query(TanStack Query v4)',
+            'React',
+            'Typescript',
+            'React Query((TanStack Query v4)',
             'Redux Toolkit',
             'React Table(TanStack Table v8)',
           ],
@@ -140,11 +142,11 @@ const config: GatsbyConfig = {
             '기타비 재집계 개발'
           ],
           results: [
-            '정산, 명세서, 기타비 관리를 개발하였습니다.',
             '반복되는 컴포넌트(Modal, SearchContent)를 추상화 및 모듈화 하여 DX를 개선하였습니다.',
             'Axio interceptor와 react-query의 onError로 <strong>일관된 에러처리</strong>를 적용하였습니다.',
             'Redux Toolkit을 활용하여 중앙집중식 데이터 관리 구축(createAsyncThunk, createSlice)',
-            '올바른 RESTful API 방향에 대하여 백엔드 개발자와 함께 고민하였습니다.'
+            '올바른 RESTful API 방향에 대하여 백엔드 개발자와 함께 고민하였습니다.',
+            '정산, 명세서, 기타비 관리를 개발하였습니다.',
           ]
         },
         {
@@ -160,13 +162,12 @@ const config: GatsbyConfig = {
           tasks: [
           ],
           results: [
-            'server와 통신하는 페이지인 고객 문의 페이지 개발하였습니다.',
             'Vue3의 <strong>Composition API</strong>에 코드 작성 방식을 적용하여 좀 더 논리적 관점에서의 개발',
-            'VueX와 Pinia를 <strong>비교 분석</strong>하여 더 적합한 상태관리 라이브러리(Pinia)를 도입 ',
-            '코드의 양을 줄여 유지보수성을 높임',
-            '중앙집중식 데이터 관리를 통해 효율적으로 데이터 관리',
-            '효율적인 구조를 설계하여 리팩토링 후 안정성을 보장',
-            'ASIS 버그 개선을 통한 사용성 향상'
+            'jquery를 vuex로 리팩토링(코드양 50%이상 줄임)',
+            '중앙집중식 상태관리 위래 Pinia 도입(VueX 대비)',
+            '공통 Component를 개발하여 코드 중복 줄임',
+            'ASIS 버그 개선을 통한 사용성 향상',
+            'Server와 통신하는 페이지인 고객 문의 페이지 개발하였습니다.',
           ]
         },
         {
@@ -191,6 +192,8 @@ const config: GatsbyConfig = {
             '고객 관리 페이지'
           ],
           results: [
+            'built-in Directives v-cloak을 통해 Mustache 바인딩을 숨겨 UX 개선',
+            '사용자 권한에 따른 조건부 랜더링',
             'Vue.js Component를 적절히 분리하여 재사용성과 유지보수성 높임',
             '공통으로 사용하는 데이터들을 코드화하여 안정성을 높임',
             'Sonarlink 플러그인을 적용하여 코드 품질을 향상'
@@ -203,19 +206,19 @@ const config: GatsbyConfig = {
           description: '삼성전자 각 Gateway로부터 데이터를 수집(센서, 운영 현황, 운영 이력 데이터)하여 분석 및 가공한 통계 데이터를 통합 관제할 수 있는 맞춤형 대시보드 어드민 사이트입니다. 해당 프로젝트의 Front-end 개발자를 담당하였습니다',
           skills: [
             'vue.js',
-            'vuex'
+            'vuex',
+            'vue-chartjs',
+            'Vue Grid Layout'
           ],
           tasks: [
-            '각 Gateway로부터 수집한 데이터를 차트와 그래프를 사용하여 시각화하는 대시보드 구현',
-            '대시보드의 Drag&Drop을 통한 Card Drawer 기능',
             '회원가입 기능(카카오 인증, 이메일 인증, 도로명 주소 외부 API 연동)',
             'ID찾기, PW재설정, 이용 약관 관리 메뉴',
-            'IE에 대한 크로스 브라우징 이슈를 처리하였습니다.'
           ],
           results: [
-            '서비스 초기 단계에 참여하며 효율적인 프로젝트 구조에 대해 고민',
-            '데이터를 차트와 그래프를 사용하여 시각화',
-            '대시 보드의 Drag&Drop을 통한 Card Drawer 기능의 편집 및 조회 기능을 구현(Vue Grid Layout 사용)'
+            '신규 서비스 개발에 참여',
+            '데이터를 차트와 그래프를 사용하여 시각화(vue-chartjs)',
+            '대시 보드의 Drag&Drop을 통한 Card Drawer 기능의 편집 및 조회 기능을 구현(Vue Grid Layout)',
+            'IE에 대한 크로스 브라우징 이슈를 처리',
           ]
         },
       ]
