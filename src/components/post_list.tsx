@@ -8,17 +8,18 @@ import { css } from "@emotion/react";
 
 const articleStyles = {
     article: css({ padding: "30px 0" }),
+    bottom: css({ width: "100%" }),
     chip: css({ backgroundColor: colors.gray5, borderRadius: '8px', padding: '2px 7px' })
 }
 
-const PostList = ({ posts, selectedCategory }: { posts: Post[], selectedCategory: string }) => {
+function PostList({ posts, selectedCategory }: { posts: Post[], selectedCategory: string }) {
     const { containerRef, slicedPosts } = useInfiniteScroll(selectedCategory, posts);
 
     return (
         <section>
             <div ref={containerRef}>
-                {slicedPosts.map((post, index) => (
-                    <Article key={index} {...post} selectedCategory={selectedCategory} />
+                {slicedPosts.map((post) => (
+                    <Article key={post.node.id} {...post} selectedCategory={selectedCategory} />
                 ))}
             </div>
         </section>)
@@ -34,7 +35,7 @@ const Article = ({ selectedCategory, node: { frontmatter, fields: { slug } } }: 
                     <StyledTypography color="gray2" variant="h6">
                         {frontmatter.summary}
                     </StyledTypography>
-                    <FlexBox direction="row" gap="5px" css={{ width: '100%' }} justify="space-between" align="center">
+                    <FlexBox direction="row" gap="5px" css={articleStyles.bottom} justify="space-between" align="center">
                         <StyledTypography color="gray5">
                             {frontmatter.date}
                         </StyledTypography>

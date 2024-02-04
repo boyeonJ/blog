@@ -5,15 +5,12 @@ import { GraphQLNode, Post, } from "../models/types";
 import PostList from "../components/post_list";
 import queryString, { ParsedQuery } from 'query-string'
 import CategoryList, { CategoryListProps } from "../components/category_list";
-import Layout from "../components/layout";
-import FlexBox from "../components/atoms/flex_box";
-import StyledTypography from "../components/atoms/styled_typography";
 import Spacing from "../components/atoms/spacing";
 
-const Blog: FC<PageProps<GraphQLNode>> = ({
+const Blog = ({
   data: {
     allMarkdownRemark: { edges }
-  }, location: { search } }) => {
+  }, location: { search } }: PageProps<GraphQLNode>) => {
 
 
   const parsed: ParsedQuery<string> = queryString.parse(search)
@@ -80,11 +77,6 @@ query getPostList {
             summary
             date(formatString: "YYYY.MM.DD.")
             categories
-            thumbnail {
-              childImageSharp {
-                gatsbyImageData(width: 768, height: 200)
-              }
-            }
           }
         }
       }

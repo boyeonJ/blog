@@ -1,9 +1,8 @@
 ---
 date: '2024-01-19'
 title: 'Typescript 활용하기'
-categories: ['typescript']
+categories: ['Typescript']
 summary: 'Typescript 활용하기'
-thumbnail: '../2.png'
 ---
 
 # Typescript 유틸리티 타입 = 제네릭 타입

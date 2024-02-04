@@ -10,7 +10,8 @@ const indexStyles = {
     main: css({
         backgroundColor: colors.primary1,
         minHeight: "100vh",
-        paddingTop: "110px",
+        [maxq[3]]: { padding: "110px 20px 0 20px" },
+        padding: "110px 350px 0 350px"
     })
 }
 
@@ -18,25 +19,16 @@ type LayoutProps = {
     children: ReactNode
 }
 
-const Layout: FC<LayoutProps> = ({
+const Layout = ({
     children,
-}) => {
+}: LayoutProps) => {
 
     return (
         <div>
             <Global styles={global} />
             <Header />
-            <main
-                css={indexStyles.main}>
-                <div
-                    css={{
-                        // [maxq[2]]: { margin: "0 100px" },
-                        [maxq[3]]: { margin: "0px 20px" },
-                        margin: "0 350px",
-                    }}
-                >
-                    {children}
-                </div>
+            <main css={indexStyles.main}>
+                {children}
             </main>
             <Footer />
         </div>

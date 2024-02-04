@@ -1,8 +1,8 @@
 ---
 date: '2024-01-15'
-title: 'gatsby blog 개발 트러블 슈팅 : google icons 추가'
-categories: ['gatsby', 'SEO', 'Optimization']
-summary: 'gatsby blog를 개발하면서 google icons 추가할때 경험한 트러블 슈팅을 공유합니다.'
+title: 'Gatsby blog 개발 트러블 슈팅 : google icons 추가'
+categories: ['Gatsby']
+summary: 'Gatsby blog를 개발하면서 google icons 추가할때 경험한 트러블 슈팅을 공유합니다.'
 ---
 
 ## gatsby-plugin-fontawesome-css 사용 안하기

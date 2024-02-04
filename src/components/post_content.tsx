@@ -1,20 +1,10 @@
-import { FC, FunctionComponent } from 'react'
-import styled from '@emotion/styled'
+import { FC } from 'react'
 
 interface PostContentProps {
     html: string
 }
 
-// const MarkdownRenderer = styled.div`
-//   // Renderer Style
-//   display: flex;
-//   flex-direction: column;
-//   width: 768px;
-//   margin: 0 auto;
-//   padding: 100px 0;
-// `
-
-const PostContent: FC<PostContentProps> = function ({ html }) {
+const PostContent = function ({ html }: PostContentProps) {
     return <div dangerouslySetInnerHTML={{ __html: html }} />
 }
 

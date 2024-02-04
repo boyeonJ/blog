@@ -12,11 +12,14 @@ const useInfiniteScroll = (
 
     const postsByCategory = useMemo(
         () =>
-            posts.filter(({ node: { frontmatter: { categories } } }: Post) =>
-                selectedCategory !== 'All'
-                    ? categories.includes(selectedCategory)
-                    : true,
-            ),
+            posts
+                .sort((a, b) =>
+                    new Date(b.node.frontmatter.date).getDate() - new Date(a.node.frontmatter.date).getDate())
+                .filter(({ node: { frontmatter: { categories } } }: Post) =>
+                    selectedCategory !== 'All'
+                        ? categories.includes(selectedCategory)
+                        : true
+                ),
         [selectedCategory],
     )
 

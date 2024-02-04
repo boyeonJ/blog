@@ -1,13 +1,22 @@
+import { SerializedStyles, css } from "@emotion/react";
 import { FoundationProps } from "../../models/types";
 
-export default function Spacing({ size, className }: { size: number } & FoundationProps) {
-  return (
-    <div
-      style={{
-        flex: "none",
-        height: size,
-      }}
-      className={className}
-    />
-  );
+const spacingSize: { [key: number]: SerializedStyles } = {
+    20: css({
+        flex: 'none',
+        height: '20px'
+    }),
+    50: css({
+        flex: 'none',
+        height: '50px'
+    }),
+}
+
+export default function Spacing({ size, className }: { size: 20 | 50 } & FoundationProps) {
+    return (
+        <div
+            css={spacingSize[size]}
+            className={className}
+        />
+    );
 }

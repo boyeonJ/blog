@@ -1,15 +1,14 @@
 ---
-date: '2024-01-25'
-title: 'Gatsby로 블로그를 개발하면 익혔던 내용 정리'
-categories: ['gatsby']
-summary: 'Gatsby로 블로그를 개발하면 익혔던 내용을 정리하였습니다.'
+date: '2024-01-18'
+title: 'Gatsby config 파일과 Buil-in React Components'
+categories: ['Gatsby']
+summary: 'Gatsby에서 추가적인 기능 사용할 수 있는 Buil-in React Components와 config 파일에 대해 정리하였습니다. '
 ---
 
-Gatsby로 블로그를 개발하면 익혔던 내용을 정리하였습니다. 
+Gatsby로 블로그를 개발하며 여러가지 Gatsby만의 **추가기능을 사용하는 방법**에 대해 정리하였습니다.
 > 공식문서를 보고 공부하였으며 좀 더 자세한 내용은 공식문서를 참고하세요.
 
-# 전체적으로 살펴보기
-
+# Buil-in React Components와 config 파일
 **Buil-in React Components**에는 Link, Script, Head, Image plugin, Slice 등이 존재합니다.
 
 그리고 추가적인 기능을 사용할 수 있도록 다양한 **config 파일**이 존재하고 그 내부에서 사용하는 api들이 각각 다릅니다. 
@@ -39,6 +38,8 @@ Gatsby Browser API들을 사용할 수 있는 config 파일입니다. 이 API들
 ---
 
 # wrapRootElement와 wrapPageElement
+gatsby-ssr.js/gatsby-browser.jsx config 파일에서 사용하는 API중 실제 블로그를 개발하며 유용하게 사용했던 API인 wrapRootElement, wrapPageElement에 대해 좀 더 자세히 살펴보겠습니다.
+
 wrapRootElement, wrapPageElement API는 비슷한 기능을 제공하는 API입니다. 그렇지만 이들은 사용하는 시점이 다릅니다. 
 
 #### 1️. wrapRootElement
