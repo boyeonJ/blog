@@ -1,8 +1,6 @@
 import { Link, graphql } from 'gatsby'
-import { FC } from 'react'
 import React from 'react'
 import { Post } from '../models/types'
-import Layout from '../components/layout'
 import styled from '@emotion/styled'
 import colors from '../constants/colors'
 import FlexBox from '../components/atoms/flex_box'
@@ -68,7 +66,7 @@ const MarkdownRenderer = styled.div`
 
     // Adjust Horizontal Rule style
     hr {
-        border: 1px solid ${colors.gray1};
+        border: 1px solid ${colors.gray11};
         margin-bottom: 30px;
         margin-top: 30px;
     }
@@ -79,12 +77,15 @@ const MarkdownRenderer = styled.div`
 
     // Adjust Link Element Style
     a {
-        color: #4263eb;
         text-decoration: underline;
     }
 
     img {
         max-width: 100%;
+    }
+
+    .gatsby-resp-image-wrapper {
+        margin: 100px 0;
     }
 
     strong {

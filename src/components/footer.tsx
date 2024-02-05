@@ -5,13 +5,12 @@ import StyledTypography from "./atoms/styled_typography";
 import Spacing from "./atoms/spacing";
 
 const footerStyles = {
-    section: css({ backgroundColor: colors.primary1, bottom: 0, width: '100vw' })
+    section: css({ backgroundColor: colors.primary1, bottom: 0, width: '100vw', padding: '50px 0' })
 }
 
 const Footer = () => {
     return (
         <section css={footerStyles.section}>
-            <Spacing size={50} />
             <FlexBox align="center">
                 <StyledTypography color="gray2">Copyright ⓒ 2023 정보연 All rights reserved.</StyledTypography>
             </FlexBox>

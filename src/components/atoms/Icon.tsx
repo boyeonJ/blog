@@ -32,8 +32,8 @@ const icons: {
 type IconsName = keyof typeof icons;
 
 export type IconProps = {
-  name: IconsName
-  size?: SizeProp
+  name: IconsName;
+  size?: SizeProp;
   color?: Color;
 };
 

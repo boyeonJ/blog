@@ -18,11 +18,11 @@ const lightTheme = `
 --clr-primary-2: #FBFBFB;
 --clr-primary-3: #212121;
 --clr-primary-4: #26a5f9;
---clr-grey-1: #878787;
---clr-grey-2: #909090;
---clr-grey-3: #9a9a9a;
---clr-grey-4: #a4a4a4;
---clr-grey-5: #aeaeae;
+--clr-grey-1: #595959;
+--clr-grey-2: #5C5C5C;  
+--clr-grey-3: #636363;
+--clr-grey-4: #737373;
+--clr-grey-5: #757575;
 --clr-grey-6: #b8b8b8;
 --clr-grey-7: #c1c1c1;
 --clr-grey-8: #cbcbcb;

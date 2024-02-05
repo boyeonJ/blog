@@ -8,6 +8,7 @@ const IconButton = ({
   name,
   size,
   color,
+  buttonName
 }: IconProps & ButtonProps & FoundationProps) => {
 
   return (
@@ -18,6 +19,7 @@ const IconButton = ({
         backgroundColor: "transparent",
         borderColor: "transparent",
       }}
+      buttonName={buttonName}
     >
       <Icon name={name} size={size} color={color} className={className}></Icon>
     </Button>

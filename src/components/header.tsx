@@ -29,6 +29,7 @@ const navStyles: {
         listStyleType: 'none',
         padding: 0,
         margin: 0,
+        display: 'flex'
     }, { li: { marginRight: "3rem" } }]),
 };
 
@@ -69,7 +70,7 @@ const Header = () => {
 const HeaderLeft = () => {
     return (
         <div className="logo">
-            <Link to={"../../"}>
+            <Link to={"../../../"}>
                 <StyledTypography variant="h1">
                     BOYEON
                 </StyledTypography>
@@ -84,18 +85,16 @@ const NavBar = () => {
             css={mediaStyles.maxNone}
         >
             <ul css={navStyles.ul}>
-                <FlexBox direction="row">
-                    <li>
-                        <Link to={`../../../`}>
-                            <StyledTypography variant="h1" >BLOG</StyledTypography>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to={`../../resume`}>
-                            <StyledTypography variant="h1" >RESUME</StyledTypography>
-                        </Link>
-                    </li>
-                </FlexBox>
+                <li>
+                    <Link to={`../../../`}>
+                        <StyledTypography variant="h1" >BLOG</StyledTypography>
+                    </Link>
+                </li>
+                <li>
+                    <Link to={`../../resume`}>
+                        <StyledTypography variant="h1" >RESUME</StyledTypography>
+                    </Link>
+                </li>
             </ul>
         </nav>
     );
@@ -114,10 +113,12 @@ const HeaderRight = () => {
             <IconButton
                 onClick={() => setTheme("light" === theme ? "dark" : "light")}
                 name={"moon"}
+                buttonName="themeButton"
             />
             <IconButton
                 name="bars"
                 css={mediaStyles.minNone}
+                buttonName="menuButton"
             />
         </FlexBox>
     );

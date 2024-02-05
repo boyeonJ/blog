@@ -53,7 +53,7 @@ const CategoryChips = ({ categories, selectedCategory }: { categories: string[],
             {categories.map((category: string) => (
                 <div key={category} css={articleStyles.chip}>
                     <StyledTypography
-                        color={selectedCategory === category ? "primary3" : "gray13"}
+                        color={selectedCategory === category ? "primary3" : "primary1"}
                         variant={selectedCategory === category ? "h7B" : "h7B"}>
                         {category}
                     </StyledTypography>
