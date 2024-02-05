@@ -10,32 +10,21 @@ const config: GatsbyConfig = {
     resumeInfo: {
       personalProjects: [
         {
-          name: '개인 기술 블로그',
+          name: '정보연 블로그',
           period: '2024.01~',
           description: 'Gatsby로 개인 블로그를 개발하였습니다.',
           skills: [
-            'gatsby',
-            'typescript',
-            'storybook',
-            'emotion'
+            'Gatsby',
+            'Typescript',
+            'Emotion'
           ],
           results: [
-            'Link API로 최적화',
-            'imgae plugin으로 lazy-loading 적용',
-            'infinite sroll을 <strong>custom hook</strong>으로 구현',
-            '<strong>atomic design pattern</strong> 디자인 시스템 구현',
-            'stotybook을 활용하여 <strong>컴포넌트 주도</string> 개발',
-            'remark',
-            'server side rendering에 대한 이해',
-            '최적화를 위한 플러그인과 built in API 적극 활용',
-            'meta tag, sitemap, robots를 이용하여 검색엔진 최적화 하였습니다.',
-            'Link API, Head API 등 Gatsby build-in API를 활용하여 번들 최적화 하였습니다.',
-            '인피니트 스크롤을 구현하였습니다.',
-            'scrollspy를 구현하였습니다.',
-            'GatsbyImage, StaticImage를 활용하여 image lazy loading 구현하였습니다',
-            'typescript omit, pick 유틸리티 타입 = 제네릭 타입 활용',
-            '간단하지만 atom desgin pattern으로 디자인 시스템을 구축하였습니다.',
-            'useMemo 등 react 최적화를 구현하였습니다.'
+            'Link API로 <strong>prefetch</strong> 적용하여 로딩 최적화',
+            'GatsbyImage, StaticImage으로 <strong>lazy-loading</strong> 및 이미지 최적화',
+            'custom hook을 구현하여 공통 로직 재사용(useInfiniteScroll)',
+            'atomic design pattern 디자인 시스템 구현',
+            'Head API, meta tag, sitemap, robots를 이용하여 <strong>검색엔진 최적화</strong> 하였습니다.',
+            'useMemo로 메모리 최적화',
           ]
         },
       ],
