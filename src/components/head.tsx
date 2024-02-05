@@ -16,6 +16,7 @@ export const Head: HeadFC<GraphQLNode> = ({
 }) => {
     return (
         <>
+            <html lang="ko" />
             <title>정보연 블로그</title>
             <meta name="description" content={description} />
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
