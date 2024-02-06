@@ -3,7 +3,7 @@ import type { GatsbyConfig } from "gatsby";
 const config: GatsbyConfig = {
   siteMetadata: {
     title: '정보연 블로그',
-    siteUrl: `https://www.boyeon.blog.site`,
+    siteUrl: `https://boyeon.vercel.app`,
     description: '안녕하세요, 소프트웨어 개발자 정보연입니다.',
     author: '정보연',
     image: 'https://github.com/boyeonJ/reactBlog/assets/32887635/ff7bb0c3-4593-4c97-a4a0-178ddbe0622e',
@@ -226,6 +226,7 @@ const config: GatsbyConfig = {
   // Learn more at: https://gatsby.dev/graphql-typegen
   graphqlTypegen: true,
   plugins: [
+    "gatsby-plugin-sitemap",
     "gatsby-plugin-emotion",
     "gatsby-transformer-sharp",
     "gatsby-plugin-image",
