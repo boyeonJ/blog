@@ -1,5 +1,5 @@
 import { SerializedStyles, css } from "@emotion/react";
-import { useEffect, useState, Profiler, SetStateAction, Dispatch } from "react";
+import { useEffect, useState } from "react";
 import colors from "../constants/colors";
 import FixedBox from "./atoms/fixed_box";
 import FlexBox from "./atoms/flex_box";
