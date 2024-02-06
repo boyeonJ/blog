@@ -8,7 +8,6 @@ const Typography = ({
 }: FoundationProps & { innerHtml?: boolean }) =>
     (innerHtml && children)
         ? (<span css={{
-            display: "inline-block",
             strong: {
                 boxShadow: `inset 0 -6px 0 ${colors.primary4}`,
                 lineHeight: '21px',

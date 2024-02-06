@@ -14,7 +14,7 @@ const useInfiniteScroll = (
         () =>
             posts
                 .sort((a, b) =>
-                    new Date(b.node.frontmatter.date).getDate() - new Date(a.node.frontmatter.date).getDate())
+                    new Date(b.node.frontmatter.date).getTime() - new Date(a.node.frontmatter.date).getTime())
                 .filter(({ node: { frontmatter: { categories } } }: Post) =>
                     categories.includes('Private') ? false :
                         selectedCategory !== 'All'

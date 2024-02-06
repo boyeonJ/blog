@@ -186,43 +186,48 @@ export default Resume;
 export { Head } from "../components/head"
 
 export const getResumeInfo = graphql`
-            query getResumeInfo {
-                site {
-                siteMetadata {
-                resumeInfo {
+query getResumeInfo {
+    site {
+        siteMetadata {
+            title,
+            description,
+            siteUrl,
+            author,
+            image,
+            resumeInfo {
                 experiences {
-                name,
-                position,
-                period,
-                description
-            },
-            projects {
-                name,
-                company,
-                period,
-                description,
-                skills,
-                tasks,
-                results
+                    name,
+                    position,
+                    period,
+                    description
+                },
+                projects {
+                    name,
+                    company,
+                    period,
+                    description,
+                    skills,
+                    tasks,
+                    results
+                }
+                personalProjects {
+                    name,
+                    period,
+                    description,
+                    skills,
+                    results
+                }
+                skills {
+                    name,
+                    contents
+                }
             }
-            personalProjects {
-                name,
-                period,
-                description,
-                skills,
-                results
-            }
-            skills {
-                name,
-                contents
-            }
-      }
+        }
     }
-  }
-            file(name: {eq: "personal-project-blog" }) {
-                childImageSharp {
-                gatsbyImageData(layout: FULL_WIDTH)
+    file(name: {eq: "personal-project-blog" }) {
+        childImageSharp {
+            gatsbyImageData(layout: FULL_WIDTH)
+        }
     }
-  }
 }
-            `
+`

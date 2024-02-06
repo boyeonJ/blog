@@ -106,7 +106,7 @@ const NavBar = ({ className, isNavExpanded = false, barButtonHandler }: { classN
                     </Link>
                 </li>
                 <li>
-                    <Link to={`../../resume`} onClick={barButtonHandler}>
+                    <Link to={`../../../resume`} onClick={barButtonHandler}>
                         <StyledTypography variant="h1">RESUME</StyledTypography>
                     </Link>
                 </li>

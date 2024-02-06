@@ -6,12 +6,10 @@ import StyledTypography from "../components/atoms/styled_typography"
 
 const NotFoundPage: React.FC<PageProps> = () => {
   return (
-    <Layout>
-      <FlexBox align="center">
-        <StyledTypography variant="h1B">Not Found Page</StyledTypography>
-        <StyledTypography color="gray3">요청하신 페이지를 찾을 수 없습니다.</StyledTypography>
-      </FlexBox>
-    </Layout>
+    <FlexBox align="center">
+      <StyledTypography variant="h1B">Not Found Page</StyledTypography>
+      <StyledTypography color="gray3">요청하신 페이지를 찾을 수 없습니다.</StyledTypography>
+    </FlexBox>
   )
 }
 
