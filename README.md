@@ -1,3 +1,6 @@
+![screenshot](https://github.com/boyeonJ/blog/assets/32887635/1069cede-ff28-4420-aa25-64d4d0d16838)
+<br/><br/><br/>
+
 ## boyeon blog
 - 기술을 기록하는 blog page, 경험을 정리한 resume page 개발
 - dark mode 구현
