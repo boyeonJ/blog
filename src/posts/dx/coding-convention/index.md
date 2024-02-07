@@ -1,7 +1,7 @@
 ---
 date: '2024-01-18'
 title: '일관성 있는 코드를 위해 내가 지키고 싶은 것들(Coding Convention)'
-categories: ['Optimization', 'UX','DX']
+categories: ['Optimization', 'UX','DX', 'Typescript']
 summary: '일관성 있는 코드를 위한 나만의 코딩 컨벤션'
 ---
 

@@ -6,6 +6,7 @@ import colors from '../constants/colors'
 import FlexBox from '../components/atoms/flex_box'
 import StyledTypography from '../components/atoms/styled_typography'
 import Spacing from '../components/atoms/spacing'
+import TableOfContents from '../components/table-of-contents'
 
 
 type PostTemplateProps = {
@@ -22,6 +23,7 @@ const MarkdownRenderer = styled.div`
     font-size: 1.2rem;
     font-weight: 400;
     color: ${colors.primary3};
+    width: 100%;
 
     p {
         margin-bottom: 1.5rem;
@@ -120,6 +122,7 @@ const PostTemplate = function ({
     const {
         node: {
             html,
+            tableOfContents,
             frontmatter: {
                 title,
                 date,
@@ -127,7 +130,6 @@ const PostTemplate = function ({
             },
         },
     } = edges[0]
-
 
     return (
         <>
@@ -152,9 +154,9 @@ const PostTemplate = function ({
             </FlexBox>
             <Spacing size={20} />
             <MarkdownRenderer dangerouslySetInnerHTML={{ __html: html }} />
+            {/* <TableOfContents content={tableOfContents} /> */}
         </>
     )
-
 }
 
 export default PostTemplate;
@@ -166,6 +168,7 @@ export const queryMarkdownDataBySlug = graphql`
       edges {
         node {
           html
+          tableOfContents
           frontmatter {
             title
             summary
