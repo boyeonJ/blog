@@ -96,9 +96,9 @@ function handleStop() {
 ```
 
 ### 2. [DOM 조작](https://react.dev/learn/manipulating-the-dom-with-refs)(JSX ref attribute)
-보통 React는 render output에 따라 dom을 자동으로 조작하기 때문에 직접 돔을 조작할 수 없다. 만약 dom 조작이 직접 필요한 경우라면 **JSX ref attribute** 사용해야 한다.
+보통 React는 render output에 따라 dom을 자동으로 조작하기 때문에 직접 돔을 조작할 수 없습니다. 만약 dom 조작이 직접 필요한 경우라면 **JSX ref attribute** 사용해야 합니다.
 
-아래의 두가지를 함께 활용하면 dom을 직접 조작할 수 있다.
+아래의 두가지를 함께 활용하면 dom을 직접 조작할 수 있습니다.
 1. useRef hook을 통해 생성한 ref값
 2. JSX 태그의 ref attribute
 > div, input 등의 html 기본 JSX 태그
@@ -128,10 +128,10 @@ export default function Form() {
 
 ### 4. ref 관련 최종 정리
 
-**Refs의 특징**은 크게 3가지로 정리할 수 있다.
-1. 재랜더링시 데이터 유지
-2. 변경 가능(mutable data)
-3. 재랜더링 트리거 안됨
+**Refs의 특징**은 크게 3가지로 정리할 수 있습니다.
+1. 재랜더링시 데이터 유지 
+2. 재랜더링시 트리거 안됨
+3. 변경 가능(mutable data)
 
 Refs는 주로 아래와 같은 **상황에서 사용**됩니다.
 1. timeout ids 저장
