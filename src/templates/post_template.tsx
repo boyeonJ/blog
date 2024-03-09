@@ -7,6 +7,7 @@ import FlexBox from '../components/atoms/flex_box'
 import StyledTypography from '../components/atoms/styled_typography'
 import Spacing from '../components/atoms/spacing'
 import TableOfContents from '../components/table-of-contents'
+import Chip from '../components/chip'
 
 
 type PostTemplateProps = {
@@ -20,41 +21,26 @@ type PostTemplateProps = {
 const MarkdownRenderer = styled.div`
     padding: 30px 0;
     word-break: break-all;
-    font-size: 1.2rem;
     font-weight: 400;
     color: ${colors.primary3};
     width: 100%;
+    line-height: 1.8rem;
 
     p {
         margin-bottom: 1.5rem;
     }
 
-    // Heading Element Style
     h1,
     h2,
-    h3 {
-        font-weight: 500;
-        margin-bottom: 20px;
-        margin-top: 70px;
+    h3,
+    h4 {
+        font-weight: 600;
     }
 
-    hr + h1,
-    hr + h2,
-    hr + h3 {
-        margin-top: 0;
-        margin-bottom: 0;
-    }
-
+    // Heading Element Style
     h1 {
-        font-size: 2.5rem,
-    }
-
-    h2 {
-        font-size: 2.2rem,
-    }
-
-    h3 {
-        font-size: 1.8rem,
+        padding-bottom: 10px;
+        border-bottom: 1px solid ${colors.gray9};
     }
 
     // Adjust Quotation Element Style
@@ -133,29 +119,25 @@ const PostTemplate = function ({
 
     return (
         <>
-            <FlexBox css={{ gap: "10px" }}>
-                <StyledTypography variant='h1B'>{title}</StyledTypography>
-                <FlexBox gap="10px" align='flex-end' css={{ width: '100%' }}>
-                    <FlexBox direction='row' gap="5px">
-                        {categories.map((category: string) => (
-                            <Link to={`../post/?category=${category}`} key={category}>
-                                <div css={{ backgroundColor: colors.gray12, borderRadius: '8px', padding: '2px 7px' }}>
+            <FlexBox gap="10px" align='center'>
+                <StyledTypography color='gray2'>{date}</StyledTypography>
+                <StyledTypography variant='h3'>{title}</StyledTypography>
+                <FlexBox direction='row' gap="5px">
+                    {categories.map((category: string) => (
+                        <Link to={`../post/?category=${category}`} key={category}>
+                            <Chip label={category} />
+                            {/* <div css={{ backgroundColor: colors.gray12, borderRadius: '8px', padding: '2px 7px' }}>
                                     <StyledTypography>
                                         {category}
                                     </StyledTypography>
-                                </div>
-                            </Link>
-                        ))}
-                    </FlexBox>
-                    <StyledTypography>
-                        {date}
-                    </StyledTypography>
+                                </div> */}
+                        </Link>
+                    ))}
                 </FlexBox>
-            </FlexBox>
-            <Spacing size={20} />
+            </FlexBox >
             <MarkdownRenderer dangerouslySetInnerHTML={{ __html: html }} />
             {/* <TableOfContents content={tableOfContents} /> */}
-        </>
+        </ >
     )
 }
 
@@ -163,14 +145,14 @@ export default PostTemplate;
 export { Head } from "../components/head"
 
 export const queryMarkdownDataBySlug = graphql`
-  query queryMarkdownDataBySlug($slug: String) {
-    allMarkdownRemark(filter: { fields: { slug: { eq: $slug } } }) {
-      edges {
-        node {
-          html
+            query queryMarkdownDataBySlug($slug: String) {
+                allMarkdownRemark(filter: {fields: {slug: {eq: $slug } } }) {
+                edges {
+                node {
+                html
           tableOfContents
-          frontmatter {
-            title
+            frontmatter {
+                title
             summary
             date(formatString: "YYYY.MM.DD.")
             categories
@@ -178,14 +160,14 @@ export const queryMarkdownDataBySlug = graphql`
         }
       }
     }
-    site {
-        siteMetadata {
-            title,
-            description,
-            siteUrl,
-            author,
-            image
-        }
+            site {
+                siteMetadata {
+                title,
+                description,
+                siteUrl,
+                author,
+                image
+            }
     }
   }
-`
+            `

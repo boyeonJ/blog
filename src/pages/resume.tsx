@@ -1,12 +1,24 @@
 import { PageProps, graphql } from "gatsby"
 import FlexBox from "../components/atoms/flex_box"
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 import Spacing from "../components/atoms/spacing"
 import StyledTypography from "../components/atoms/styled_typography"
-import Layout from "../components/layout"
 import colors from "../constants/colors"
 import { Experience, GraphQLNode, PersonalProject, Project, Skill } from "../models/types"
-import IconButton from "../components/atoms/icon_button";
+import Chip from "../components/chip";
+import { css } from "@emotion/react";
+
+
+const styles = {
+    box: css({
+        border: `1px solid ${colors.gray9}`,
+        boxShadow: '2px 2px 2px var(--clr-grey-11)',
+        borderRadius: '10px',
+        marginBottom: '20px',
+        padding: `20px 20px`,
+        width: '100%'
+    })
+}
 
 const Resume = ({
     data: {
@@ -16,19 +28,33 @@ const Resume = ({
                     experiences,
                     projects,
                     personalProjects,
-                    skills
                 }
             }
         },
     } }: PageProps<GraphQLNode>) => {
 
     return (
-        <FlexBox gap={"100px"}>
+        <FlexBox gap={"70px"}>
             <Info />
-            <Experiences experiences={experiences} projects={projects} />
-            <PersonalProjects projects={personalProjects} />
-            {/* <Skills skills={skills} /> */}
-        </FlexBox>
+            <ResumeSection name="Experiences">
+                {experiences.map((experience: Experience) => (
+                    <ResumeArticle key={experience.name} info={experience}>
+                        {projects.
+                            filter((project: Project) => project.company === experience.name).
+                            map((project: Project) => (
+                                <ProjectInfo key={project.name} project={project} />
+                            ))}
+                    </ResumeArticle>
+                ))}
+            </ResumeSection>
+            <ResumeSection name="Personal Projects">
+                <div css={styles.box}>
+                    {personalProjects.map((personalProjects: PersonalProject) => (
+                        <ProjectsInfo key={personalProjects.name} projects={[personalProjects]} />
+                    ))}
+                </div>
+            </ResumeSection>
+        </FlexBox >
     )
 }
 
@@ -37,54 +63,92 @@ const Info = () => {
         <FlexBox>
             <StyledTypography variant="h2B">정보연</StyledTypography>
             <StyledTypography variant="h2B">Software Developer</StyledTypography>
-            <Spacing size={20} />
+            <Spacing size={15} />
             <StyledTypography>
                 안녕하세요. <br />Software Developer 정보연입니다. <br /><br />
-
                 React와 Typescript를 중심으로 개발합니다.<br />
                 생산성을 위한 클린한 코드와 사용자 경험을 위한 최적화에 관심이 많습니다.  <br /><br />
-
                 BespinGlobal 에서 2년 11개월, Fasto에서 9개월 <br />총 3년 8개월 Software Developer 경력이 있습니다.<br />
             </StyledTypography>
         </FlexBox >
     )
 }
 
-const Experiences = ({ experiences, projects }: { experiences: Experience[], projects: Project[] }) => {
+const ResumeSection = ({ name, children }: { name: string, children: ReactNode }) => {
     return (
-        <FlexBox gap="50px">
-            <StyledTypography variant="h2B">Experiences</StyledTypography>
-
-            {experiences.map((experience: Experience) => (
-                <FlexBox direction="row" gap="10px" key={experience.name}>
-                    <FlexBox gap="10px" css={{ flex: '0 0 200px' }}>
-                        <StyledTypography variant="h3">
-                            {experience.name}
-                        </StyledTypography>
-                        <StyledTypography color="gray1">
-                            {experience.period}
-                        </StyledTypography>
-                        <StyledTypography color="gray1">
-                            {experience.position}
-                        </StyledTypography>
-                        <StyledTypography color="gray1">
-                            {experience.description}
-                        </StyledTypography>
-                    </FlexBox>
-                    <ExperienceProjects projects={projects.filter((project: Project) => project.company === experience.name)} />
-                </FlexBox>
-            ))
-            }
+        <FlexBox gap="30px" css={{ width: '100%' }}>
+            <StyledTypography variant="h2B">{name}</StyledTypography>
+            {children}
         </FlexBox >
     )
 }
 
-const ExperienceProjects = ({ projects }: { projects: Project[] }) => {
+const ResumeArticle = ({
+    info: {
+        name,
+        period,
+        position,
+        description
+    },
+    children }:
+    {
+        info: {
+            name: string
+            period: string
+            position?: string
+            description: string
+        }
+        children: ReactNode
+    }) => {
+    return (
+        <FlexBox css={styles.box}>
+            <FlexBox gap="10px" css={{ flex: '0 0 200px' }}>
+                <StyledTypography variant="h2B">
+                    {name}
+                </StyledTypography>
+                <StyledTypography color="gray1">
+                    {period}
+                </StyledTypography>
+                <StyledTypography color="gray1">
+                    {position}
+                </StyledTypography>
+                <StyledTypography color="gray1">
+                    {description}
+                </StyledTypography>
+            </FlexBox>
+            {children}
+        </FlexBox>
+    )
+}
+
+const ProjectInfo = ({ project }: { project: Project }) => {
+    return (
+        <FlexBox gap="10px" key={project.name} css={{ paddingBottom: '50px' }}>
+            <StyledTypography variant="h5B">{project.name}</StyledTypography>
+            <StyledTypography color="gray1">{project.period}</StyledTypography>
+            <StyledTypography color="gray1" innerHtml>{project.description}</StyledTypography>
+            <ul css={{ paddingLeft: '20px', color: colors.gray2, listStylePosition: 'outside' }}>
+                {project.results.map((result) => (
+                    <li key={result}>
+                        <StyledTypography innerHtml>{result}</StyledTypography>
+                    </li>
+                ))}
+            </ul>
+            <FlexBox direction="row" css={{ flexWrap: 'wrap' }} gap="10px">
+                {project.skills.map((skill: string) => (
+                    <Chip key={skill} label={skill} />
+                ))}
+            </FlexBox>
+        </FlexBox >
+    )
+}
+
+const ProjectsInfo = ({ projects }: { projects: (Omit<Project, "tasks" | "company">)[] }) => {
     return (
         <FlexBox css={{ flex: '1 0 0' }} gap="40px">
-            {projects.map((project: Project) => (
+            {projects.map((project: Omit<Project, "tasks" | "company">) => (
                 <FlexBox gap="10px" key={project.name} >
-                    <StyledTypography variant="h5">{project.name}</StyledTypography>
+                    <StyledTypography variant="h5B">{project.name}</StyledTypography>
                     <StyledTypography color="gray1">{project.period}</StyledTypography>
                     <StyledTypography color="gray1" innerHtml>{project.description}</StyledTypography>
                     <ul css={{ paddingLeft: '20px', color: colors.gray2, listStylePosition: 'outside' }}>
@@ -93,91 +157,15 @@ const ExperienceProjects = ({ projects }: { projects: Project[] }) => {
                                 <StyledTypography innerHtml>{result}</StyledTypography>
                             </li>
                         ))}
-                        {/* {project.tasks.map((task: string) => (
-                            <li key={task}>
-                                <StyledTypography innerHtml>{task}</StyledTypography>
-                            </li>
-                        ))} */}
                     </ul>
-                    <ProjectSkills skills={project.skills} />
+                    <FlexBox direction="row" css={{ flexWrap: 'wrap' }} gap="10px">
+                        {project.skills.map((skill: string) => (
+                            <Chip key={skill} label={skill} />
+                        ))}
+                    </FlexBox>
                 </FlexBox >
             ))
             }
-        </FlexBox >
-    )
-}
-
-const ProjectSkills = ({ skills }: { skills: string[] }) => {
-    return (
-        <FlexBox direction="row" css={{ flexWrap: 'wrap' }} gap="10px">
-            {skills.map((skill: string) => (
-                <div key={skill} css={{ backgroundColor: colors.gray12, borderRadius: '8px', padding: '4px 10px' }}>
-                    <StyledTypography color="gray2">{skill}</StyledTypography>
-                </div>
-            ))}
-        </FlexBox>
-    )
-}
-
-
-const PersonalProjects = ({ projects }: { projects: PersonalProject[] }) => {
-    return (
-        <FlexBox gap="50px">
-            <StyledTypography variant="h2B">Personal Projects</StyledTypography>
-            {
-                projects.map((project: PersonalProject) => (
-                    <FlexBox direction="row" gap="10px" key={project.name}>
-                        <FlexBox gap="10px" css={{ flex: '0 0 200px' }}>
-                            <StyledTypography variant="h3">
-                                {project.name}
-                            </StyledTypography>
-                            <StyledTypography color="gray1">
-                                {project.period}
-                            </StyledTypography>
-                            <StyledTypography color="gray1">
-                                {project.description}
-                            </StyledTypography>
-                            {/* {project.what.map((what: string) => (
-                        <StyledTypography color="gray2">{what}</StyledTypography>
-                    ))} */}
-                        </FlexBox >
-
-                        <FlexBox css={{ flex: '1 0 0' }} gap="40px">
-                            <FlexBox gap="30px" key={project.name} >
-                                <ul css={{ paddingLeft: '20px', margin: 0, color: colors.gray2, listStylePosition: 'outside' }}>
-                                    {project.results.map((result: string) => (
-                                        <li key={result}>
-                                            <StyledTypography innerHtml>{result}</StyledTypography>
-                                        </li>
-                                    ))}
-                                </ul>
-                                <ProjectSkills skills={project.skills} />
-                            </FlexBox>
-                        </FlexBox>
-                    </FlexBox>
-
-                ))
-            }
-        </FlexBox >
-    )
-}
-
-const Skills = ({ skills }: { skills: Skill[] }) => {
-    return (
-        <FlexBox gap={"50px"}>
-            <StyledTypography variant="h2B">Skills</StyledTypography>
-            {skills.map((skill: Skill) => (
-                <FlexBox gap="10px" key={skill.name}>
-                    <StyledTypography variant="h4">{skill.name}</StyledTypography>
-                    <ul>
-                        {skill.contents.map((content: string) => (
-                            <li key={content}>
-                                <StyledTypography innerHtml>{content}</StyledTypography>
-                            </li>
-                        ))}
-                    </ul>
-                </FlexBox>
-            ))}
         </FlexBox >
     )
 }
@@ -186,48 +174,48 @@ export default Resume;
 export { Head } from "../components/head"
 
 export const getResumeInfo = graphql`
-query getResumeInfo {
-    site {
-        siteMetadata {
-            title,
-            description,
-            siteUrl,
-            author,
-            image,
-            resumeInfo {
+            query getResumeInfo {
+                site {
+                siteMetadata {
+                title,
+                description,
+                siteUrl,
+                author,
+                image,
+                resumeInfo {
                 experiences {
-                    name,
-                    position,
-                    period,
-                    description
-                },
-                projects {
-                    name,
-                    company,
-                    period,
-                    description,
-                    skills,
-                    tasks,
-                    results
-                }
-                personalProjects {
-                    name,
-                    period,
-                    description,
-                    skills,
-                    results
-                }
-                skills {
-                    name,
-                    contents
-                }
+                name,
+                position,
+                period,
+                description
+            },
+            projects {
+                name,
+                company,
+                period,
+                description,
+                skills,
+                tasks,
+                results
+            }
+            personalProjects {
+                name,
+                period,
+                description,
+                skills,
+                results
+            }
+            skills {
+                name,
+                contents
+            }
             }
         }
     }
-    file(name: {eq: "personal-project-blog" }) {
-        childImageSharp {
-            gatsbyImageData(layout: FULL_WIDTH)
+            file(name: {eq: "personal-project-blog" }) {
+                childImageSharp {
+                gatsbyImageData(layout: FULL_WIDTH)
         }
     }
 }
-`
+            `

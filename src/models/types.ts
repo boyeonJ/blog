@@ -5,6 +5,7 @@ export type Color =
     | "primary1"
     | "primary2"
     | "primary3"
+    | "primary4"
     | "gray1"
     | "gray2"
     | "gray3"
@@ -45,6 +46,7 @@ export type FoundationProps = {
 
 export type Post = {
     node: {
+        tableOfContents: string
         id: string
         html: string
         fields: {
@@ -106,6 +108,8 @@ export type PersonalProject = {
     description: string
     skills: string[]
     results: string[]
+    link: string;
+    gitLink: string;
 }
 
 export type Skill = {
