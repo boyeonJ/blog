@@ -5,8 +5,6 @@ import styled from '@emotion/styled'
 import colors from '../constants/colors'
 import FlexBox from '../components/atoms/flex_box'
 import StyledTypography from '../components/atoms/styled_typography'
-import Spacing from '../components/atoms/spacing'
-import TableOfContents from '../components/table-of-contents'
 import Chip from '../components/chip'
 
 
@@ -73,7 +71,7 @@ const MarkdownRenderer = styled.div`
     }
 
     .gatsby-resp-image-wrapper {
-        margin: 100px 0;
+        margin: 30px 0;
     }
 
     strong {
@@ -119,21 +117,16 @@ const PostTemplate = function ({
 
     return (
         <>
-            <FlexBox gap="10px" align='center'>
-                <StyledTypography color='gray2'>{date}</StyledTypography>
-                <StyledTypography variant='h3'>{title}</StyledTypography>
+            <FlexBox gap="20px" align='center' css={{ paddingBottom: '30px' }}>
                 <FlexBox direction='row' gap="5px">
                     {categories.map((category: string) => (
                         <Link to={`../post/?category=${category}`} key={category}>
                             <Chip label={category} />
-                            {/* <div css={{ backgroundColor: colors.gray12, borderRadius: '8px', padding: '2px 7px' }}>
-                                    <StyledTypography>
-                                        {category}
-                                    </StyledTypography>
-                                </div> */}
                         </Link>
                     ))}
                 </FlexBox>
+                <StyledTypography css={{ textAlign: 'center' }} variant='h3B'>{title}</StyledTypography>
+                <StyledTypography color='gray2'>{date}</StyledTypography>
             </FlexBox >
             <MarkdownRenderer dangerouslySetInnerHTML={{ __html: html }} />
             {/* <TableOfContents content={tableOfContents} /> */}
