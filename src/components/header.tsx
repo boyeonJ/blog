@@ -74,7 +74,7 @@ const Header = () => {
             <FixedBox css={headerStyles.container}>
                 <FlexBox direction="row" justify="space-between" align="center">
                     <Link to={"../../../"} onClick={() => setIsNavExpanded(false)}>
-                        <StyledTypography variant="h1B">
+                        <StyledTypography variant="h2B">
                             BOYEON
                         </StyledTypography>
                     </Link>
@@ -102,12 +102,12 @@ const NavBar = ({ className, isNavExpanded = false, barButtonHandler }: { classN
             >
                 <li>
                     <Link to={`../../../`} onClick={barButtonHandler}>
-                        <StyledTypography variant="h1">BLOG</StyledTypography>
+                        <StyledTypography variant="h2">BLOG</StyledTypography>
                     </Link>
                 </li>
                 <li>
                     <Link to={`../../../resume`} onClick={barButtonHandler}>
-                        <StyledTypography variant="h1">RESUME</StyledTypography>
+                        <StyledTypography variant="h2">RESUME</StyledTypography>
                     </Link>
                 </li>
             </ul>
@@ -124,7 +124,7 @@ const HeaderRight = ({ barButtonHandler, isNavExpanded }: { barButtonHandler: ()
 
 
     return (
-        <FlexBox direction="row" align="center" gap="20px">
+        <FlexBox direction="row" align="center">
             <IconButton
                 onClick={() => setTheme("light" === theme ? "dark" : "light")}
                 name={"moon"}

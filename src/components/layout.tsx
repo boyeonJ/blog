@@ -10,8 +10,8 @@ const indexStyles = {
     main: css({
         backgroundColor: colors.primary1,
         minHeight: "100vh",
-        [maxq[2]]: { padding: "180px 50px 0 50px" },
-        padding: "180px 200px 0 200px"
+        [maxq[3]]: { padding: "130px 15px 0 15px" },
+        padding: "130px 300px 50px 300px"
     })
 }
 

@@ -36,7 +36,7 @@ const darkTheme = `
 --clr-primary-1: #1a1e22;
 --clr-primary-2: #101015;
 --clr-primary-3: #eeeeee;
---clr-primary-4: #2f6b92;
+--clr-primary-4: #0479c5;
 --clr-grey-13: #878787;
 --clr-grey-12: #909090;
 --clr-grey-11: #9a9a9a;

@@ -5,11 +5,19 @@ import StyledTypography from "./atoms/styled_typography";
 import { Post } from "../models/types";
 import useInfiniteScroll from "../hooks/use-infinite-scroll";
 import { css } from "@emotion/react";
+import Chip from "./chip";
 
 const articleStyles = {
-    article: css({ padding: "30px 0" }),
-    bottom: css({ width: "100%" }),
-    chip: css({ backgroundColor: colors.gray5, borderRadius: '8px', padding: '2px 7px' })
+    article: css({
+        borderRadius: '10px',
+        marginBottom: '20px',
+        padding: `20px 20px`,
+        border: `1px solid ${colors.gray9}`,
+        boxShadow: '2px 2px 2px var(--clr-grey-11)',
+    }),
+    bottom: css({
+        width: "100%"
+    })
 }
 
 function PostList({ posts, selectedCategory }: { posts: Post[], selectedCategory: string }) {
@@ -31,35 +39,23 @@ const Article = ({ selectedCategory, node: { frontmatter, fields: { slug } } }: 
         <article css={articleStyles.article}>
             <Link to={slug} >
                 <FlexBox gap="20px" >
-                    <StyledTypography variant="h3">{frontmatter.title}</StyledTypography>
+                    <StyledTypography variant="h5">{frontmatter.title}</StyledTypography>
                     <StyledTypography color="gray2" variant="h6">
                         {frontmatter.summary}
                     </StyledTypography>
-                    <FlexBox direction="row" gap="5px" css={articleStyles.bottom} justify="space-between" align="center">
+                    <FlexBox direction="row" gap="5px" css={articleStyles.bottom} justify="space-between" align="flex-end">
                         <StyledTypography color="gray5">
                             {frontmatter.date}
                         </StyledTypography>
-                        <CategoryChips categories={frontmatter.categories} selectedCategory={selectedCategory} />
+                        <FlexBox direction="row" gap="5px" wrap="wrap" justify="flex-end">
+                            {frontmatter.categories.map((category: string) => (
+                                <Chip key={category} label={category} isActive={selectedCategory === category} />
+                            ))}
+                        </FlexBox >
                     </FlexBox>
                 </FlexBox>
             </Link>
         </article >
-    )
-}
-
-const CategoryChips = ({ categories, selectedCategory }: { categories: string[], selectedCategory: string }) => {
-    return (
-        <FlexBox direction="row" gap="5px">
-            {categories.map((category: string) => (
-                <div key={category} css={articleStyles.chip}>
-                    <StyledTypography
-                        color={selectedCategory === category ? "primary3" : "primary1"}
-                        variant={selectedCategory === category ? "h7B" : "h7B"}>
-                        {category}
-                    </StyledTypography>
-                </div>
-            ))}
-        </FlexBox>
     )
 }
 
