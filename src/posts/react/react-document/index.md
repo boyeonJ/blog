@@ -59,8 +59,6 @@ createContext API를 통해 만든 context를 파라미터로 넘깁니다.
 1. Provider 컴포넌트 하위 컴포넌트 : Provider component 생성시 property key에 바인딩된 context value
 2. Provider 컴포넌트 하위 컴포넌트가 아닐때 : createContext API 호출시 파라미터로 전달한 default context value
 
----
-
 # [Refs](https://react.dev/learn/referencing-values-with-refs)
 컴포넌트내에서 재랜더링시 **데이터는 유지**되지만, 데이터 변경시 **재랜더링 트리거**가 되지 않고 싶은 데이터가 있을 수 있다. 이런 데이터는 state가 아닌 ref를 사용하면 된다.
 
