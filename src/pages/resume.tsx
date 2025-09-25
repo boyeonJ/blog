@@ -65,10 +65,8 @@ const Info = () => {
             <StyledTypography variant="h2B">Software Developer</StyledTypography>
             <Spacing size={15} />
             <StyledTypography>
-                안녕하세요. <br />Software Developer 정보연입니다. <br /><br />
-                React와 Typescript를 중심으로 개발합니다.<br />
-                생산성을 위한 클린한 코드와 사용자 경험을 위한 최적화에 관심이 많습니다.  <br /><br />
-                BespinGlobal 에서 2년 11개월, Fasto에서 9개월 <br />총 3년 8개월 Software Developer 경력이 있습니다.<br />
+                6년차 프론트엔드 개발자로서, 주로 React와 TypeScript 기반의 앱과 웹 서비스를 개발·배포·운영하며 HTML/CSS와 Web API 등 프론트엔드 기본기를 깊고 단단하게 다져왔습니다. <br /><br />
+                기술을 단순히 활용하는 것을 넘어 다양한 설계 패턴과 패러다임을 고민하며 사용자와 개발자 모두가 만족할 수 있는 코드 작성에 즐거움과 책임감을 느낍니다. 하나의 기능, 한 줄의 코드에도 고민을 담아 의미 있게 채워가고자 합니다.
             </StyledTypography>
         </FlexBox >
     )
