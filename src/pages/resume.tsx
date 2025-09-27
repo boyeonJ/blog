@@ -1,12 +1,12 @@
-import { PageProps, graphql } from "gatsby"
+import {graphql, PageProps} from "gatsby"
 import FlexBox from "../components/atoms/flex_box"
-import { FC, ReactNode } from "react";
+import {ReactNode} from "react";
 import Spacing from "../components/atoms/spacing"
 import StyledTypography from "../components/atoms/styled_typography"
 import colors from "../constants/colors"
-import { Experience, GraphQLNode, PersonalProject, Project, Skill } from "../models/types"
+import {Experience, GraphQLNode, PersonalProject, Project} from "../models/types"
 import Chip from "../components/chip";
-import { css } from "@emotion/react";
+import {css} from "@emotion/react";
 
 
 const styles = {

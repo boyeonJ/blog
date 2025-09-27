@@ -83,7 +83,7 @@ const config: GatsbyConfig = {
       ],
       experiences: [
         {
-          name: '주식회사마플코퍼레이션',
+          name: '마플코퍼레이션',
           position: '프론트엔드 개발',
           period: '2024.05~',
           description: 'Web3 기반 소셜 플랫폼 CIETY의 Web·WebView 서비스 및 멀티 플랫폼 멤버십/후원 SDK를 개발·운영하였습니다.'
@@ -103,7 +103,7 @@ const config: GatsbyConfig = {
       projects: [
         {
           name: '멤버십 SDK 개발 및 운영',
-          company: '마플',
+          company: '마플코퍼레이션',
           period: '2024.06~',
           description: '멀티 플랫폼에서 사용할 수 있는 멤버십/후원/커미션 SDK를 설계·개발하였습니다.',
           skills: [
@@ -120,13 +120,16 @@ const config: GatsbyConfig = {
             'SDK 형태로 모듈화하여 다양한 플랫폼에서 활용 가능하도록 설계',
           ],
           results: [
-            'UI와 비즈니스 로직을 분리하여 <strong>개발자 경험(DX)과 재사용성</strong>을 강화하였습니다.',
-            '여러 서비스에 동일 SDK를 적용하여 <strong>유지보수 비용을 절감</strong>하였습니다.'
+            '어드민·클라이언트 도메인에서 <strong>UI를 쉽게 조립</strong>할 수 있도록 멤버십/후원/커미션 SDK를 개발하였습니다.',
+            'Headless UI 패턴 기반 Custom Hook으로 UI 요소를 추상화하여 <strong>재사용성과 확장성</strong>을 확보하였습니다.',
+            'SDK 형태로 모듈화하여 다양한 플랫폼에서 활용 가능하도록 설계하여 <strong>범용성</strong>을 높였습니다.',
+            'UI와 비즈니스 로직을 분리하여 <strong>개발자 경험(DX)</strong>을 향상시켰습니다.',
+            '여러 서비스에 동일 SDK를 적용하여 <strong>유지보수 비용을 절감</strong>하였습니다.',
           ]
         },
         {
           name: 'CIETY 솔루션 개발 및 운영(Web, WebView)',
-          company: '마플',
+          company: '마플코퍼레이션',
           period: '2024.06~',
           description: 'Web3 기반 소셜 플랫폼 서비스 CIETY의 웹·앱(WebView) 솔루션을 개발·운영하였습니다.',
           skills: [
@@ -152,7 +155,7 @@ const config: GatsbyConfig = {
         },
         {
           name: 'CIETY 홈페이지 개발 및 운영',
-          company: '마플',
+          company: '마플코퍼레이션',
           period: '2024.05~',
           description: 'Web3 소셜 플랫폼 CIETY의 공식 홈페이지를 개발·운영하였습니다.',
           skills: [
