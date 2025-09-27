@@ -1,4 +1,4 @@
-import type { GatsbyConfig } from "gatsby";
+import type {GatsbyConfig} from "gatsby";
 
 const config: GatsbyConfig = {
   siteMetadata: {
@@ -83,6 +83,12 @@ const config: GatsbyConfig = {
       ],
       experiences: [
         {
+          name: '주식회사마플코퍼레이션',
+          position: '프론트엔드 개발',
+          period: '2024.05~',
+          description: 'Web3 기반 소셜 플랫폼 CIETY의 Web·WebView 서비스 및 멀티 플랫폼 멤버십/후원 SDK를 개발·운영하였습니다.'
+        },
+        {
           name: '파스토',
           position: '프론트팀',
           period: '2022.11~2023.08',
@@ -95,6 +101,76 @@ const config: GatsbyConfig = {
           description: '공채 1기로 입사하여 삼성전자 b.iot 프로젝트와 삼성전자 gatekeeper 프로젝트를 수행하였습니다.'
         },],
       projects: [
+        {
+          name: '멤버십 SDK 개발 및 운영',
+          company: '마플',
+          period: '2024.06~',
+          description: '멀티 플랫폼에서 사용할 수 있는 멤버십/후원/커미션 SDK를 설계·개발하였습니다.',
+          skills: [
+            'React',
+            'Typescript',
+            'Jotai',
+            'Tailwind CSS',
+            'Storybook',
+            'Sentry',
+          ],
+          tasks: [
+            '어드민·클라이언트 도메인에 적용 가능한 멤버십/후원/커미션 SDK 개발',
+            'Headless UI 패턴 기반 Custom Hook으로 UI 요소 추상화',
+            'SDK 형태로 모듈화하여 다양한 플랫폼에서 활용 가능하도록 설계',
+          ],
+          results: [
+            'UI와 비즈니스 로직을 분리하여 <strong>개발자 경험(DX)과 재사용성</strong>을 강화하였습니다.',
+            '여러 서비스에 동일 SDK를 적용하여 <strong>유지보수 비용을 절감</strong>하였습니다.'
+          ]
+        },
+        {
+          name: 'CIETY 솔루션 개발 및 운영(Web, WebView)',
+          company: '마플',
+          period: '2024.06~',
+          description: 'Web3 기반 소셜 플랫폼 서비스 CIETY의 웹·앱(WebView) 솔루션을 개발·운영하였습니다.',
+          skills: [
+            'Next.js(App Router)',
+            'Typescript',
+            'Jotai',
+            'Tailwind CSS',
+            'Storybook',
+            'React Native',
+            'Fxts',
+            'WebSocket',
+          ],
+          tasks: [
+            'i18n 다국어 지원 개발 및 웹·앱 간 실시간 동기화',
+            'Redux Toolkit·Jotai 혼재 상태를 Jotai로 통합 리팩토링',
+          ],
+          results: [
+            '다국어 동기화로 <strong>글로벌 사용자 경험</strong>을 개선하였습니다.',
+            '상태 관리 체계를 단일화하여 <strong>유지보수성과 안정성</strong>을 높였습니다.',
+            'Fxts를 활용하여 <strong>선언적이고 효율적인 코드</strong>를 구현하였습니다.',
+            '온보딩 및 가이드 문서를 작성하여 <strong>협업 효율성</strong>을 높였습니다.',
+          ]
+        },
+        {
+          name: 'CIETY 홈페이지 개발 및 운영',
+          company: '마플',
+          period: '2024.05~',
+          description: 'Web3 소셜 플랫폼 CIETY의 공식 홈페이지를 개발·운영하였습니다.',
+          skills: [
+            'React',
+            'Framer Motion',
+            'react-i18next',
+          ],
+          tasks: [
+            '홈페이지 UI/UX 및 인터랙션(스크롤 트리거, 캐러셀, 드래그앤드롭) 개발',
+            'react-i18next 기반 다국어 지원 개발',
+            '뷰포트 단위(vw, vh) 및 미디어 쿼리 활용 반응형 UI 구현',
+          ],
+          results: [
+            'GPU 가속(transform, opacity) 최적화를 통해 <strong>CPU 병목 현상</strong>을 해소하였습니다.',
+            '다양한 인터랙션을 도입하여 <strong>사용자 경험</strong>을 강화하였습니다.',
+            '다국어 자동 감지 및 전환 기능을 제공하여 <strong>글로벌 확장성</strong>을 확보하였습니다.',
+          ]
+        },
         {
           name: '파스토 셀프 리뉴얼',
           company: '파스토',
