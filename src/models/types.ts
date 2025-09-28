@@ -1,5 +1,5 @@
-import { ReactNode } from "react";
-import { IGatsbyImageData } from 'gatsby-plugin-image'
+import {ReactNode} from "react";
+import {IGatsbyImageData} from 'gatsby-plugin-image'
 
 export type Color =
     | "primary1"
@@ -57,6 +57,7 @@ export type Post = {
             summary: string
             date: string
             categories: string[]
+            pinned?: boolean;
         }
     }
 }

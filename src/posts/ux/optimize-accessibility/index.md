@@ -3,6 +3,7 @@ date: '2024-02-05'
 title: '구글 lighthouse의 accessibility 점수를 개선하여 UX를 최적화'
 categories: ['UX','Optimization']
 summary: '구글 lighthouse의 accessibility 점수를 개선하여 UX를 최적화하는 과정을 기록하였습니다.'
+pinned: true
 ---
 
 저의 개인 블로그를 개발한 후, Lighthouse를 통해 받은 진단을 받아보았습니다. Lighthouse는 가장 개선이 필요한 부분으로 웹 접근성(Accessibility)을 지목했습니다. 이에 따라 Lighthouse에서 추천하는 방법을 따라가며 Accessibility 점수를 올리고 사용자 접근성을 개선하는 과정에 대해 이야기하고자 합니다.

@@ -3,6 +3,7 @@ date: '2024-01-19'
 title: 'Gatsby SEO 최적화'
 categories: ['Gatsby', 'Optimization']
 summary: 'Gatsby SEO 최적화를 위해 Head API에 meta tag 추가하고 sitemap을 추가하는 과정을 기록하였습니다.'
+pinned: true
 ---
 
 검색 엔진 최적화(Search Engine Optimization, SEO)는 웹 사이트를 검색 엔진에서 노출되도록 하는 프로세스를 의미합니다. 이를 통해 사용자들이 웹 사이트를 **더 쉽게 발견하고 방문**할 수 있습니다. Gatsby를 사용하여 SEO를 최적화하기 위해서는 메타 태그 및 사이트맵을 구축하는 것이 중요합니다.

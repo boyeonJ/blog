@@ -1,10 +1,9 @@
-import { graphql, type PageProps } from "gatsby"
-import { FC, useMemo } from "react";
-import React from "react";
-import { GraphQLNode, Post, } from "../models/types";
+import {graphql, type PageProps} from "gatsby"
+import React, {useMemo} from "react";
+import {GraphQLNode, Post,} from "../models/types";
 import PostList from "../components/post_list";
-import queryString, { ParsedQuery } from 'query-string'
-import CategoryList, { CategoryListProps } from "../components/category_list";
+import queryString, {ParsedQuery} from 'query-string'
+import CategoryList, {CategoryListProps} from "../components/category_list";
 import Spacing from "../components/atoms/spacing";
 
 const Blog = ({
@@ -16,7 +15,7 @@ const Blog = ({
   const parsed: ParsedQuery<string> = queryString.parse(search)
   const selectedCategory: string =
     typeof parsed.category !== 'string' || !parsed.category
-      ? 'All'
+      ? 'Pin'
       : parsed.category
 
 
@@ -27,20 +26,21 @@ const Blog = ({
           list: CategoryListProps['categoryList'],
           {
             node: {
-              frontmatter: { categories },
+              frontmatter: { categories, pinned },
             },
           }: Post,
         ) => {
           categories?.forEach(category => {
-            if (list[category] === undefined) list[category] = 1;
-            else list[category]++;
+              list[category] = (list[category] || 0) + 1;
           });
 
-          list['All']++;
+          if (pinned) {
+            list['Pin']++;
+          }
 
           return list;
         },
-        { All: 0 },
+        { Pin: 0 },
       ),
     [],
   )
@@ -77,6 +77,7 @@ query getPostList {
             summary
             date(formatString: "YYYY.MM.DD.")
             categories
+            pinned
           }
         }
       }

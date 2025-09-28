@@ -1,5 +1,5 @@
-import { MutableRefObject, useEffect, useMemo, useRef, useState } from "react";
-import { Post } from "../models/types";
+import {MutableRefObject, useEffect, useMemo, useRef, useState} from "react";
+import {Post} from "../models/types";
 
 const MAX_NUMBER = 5;
 
@@ -15,11 +15,11 @@ const useInfiniteScroll = (
             posts
                 .sort((a, b) =>
                     new Date(b.node.frontmatter.date).getTime() - new Date(a.node.frontmatter.date).getTime())
-                .filter(({ node: { frontmatter: { categories } } }: Post) =>
+                .filter(({ node: { frontmatter: { categories, pinned } } }: Post) =>
                     categories.includes('Private') ? false :
-                        selectedCategory !== 'All'
+                        selectedCategory !== 'Pin'
                             ? categories.includes(selectedCategory)
-                            : true
+                            : pinned
                 ),
         [selectedCategory],
     )

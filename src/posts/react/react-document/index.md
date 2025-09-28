@@ -3,6 +3,7 @@ date: '2024-01-20'
 title: '리액트 공식 문서 정독하기(Context, Refs)'
 categories: ['React', 'UX', 'Optimization']
 summary: '리액트 공식 문서를 읽으며 리액트를 좀 더 잘 사용하는 방법에 대해 연구합니다.'
+pinned: true
 ---
 
 리액트 공식 문서를 좀 더 꼼꼼히 읽으며 리액트를 좀 더 잘 18.2.0 버전을 좀 더 잘 이해하려고 정리한 문서입니다.

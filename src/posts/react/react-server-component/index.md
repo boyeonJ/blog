@@ -3,6 +3,7 @@ date: '2024-02-21'
 title: 'React Server Component로 살펴보는 랜더링 방식의 진화'
 categories: ['React']
 summary: 'React Server Component를 통해 살펴보는 랜더링 방식의 변화과정을 다룹니다.'
+pinned: true
 ---
 
 # React Server Component가 무엇인가요?

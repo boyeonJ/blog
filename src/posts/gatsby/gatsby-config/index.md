@@ -3,6 +3,7 @@ date: '2024-01-18'
 title: 'Gatsby config 파일과 Buil-in React Components'
 categories: ['Gatsby']
 summary: 'Gatsby에서 추가적인 기능 사용할 수 있는 Buil-in React Components와 config 파일에 대해 정리하였습니다. '
+pinned: true
 ---
 
 Gatsby로 블로그를 개발하며 여러가지 Gatsby만의 **추가기능을 사용하는 방법**에 알게되었습니다. 추가기능을 사용하는 방법으로는 Buil-in React Components와 config 파일이 있습니다.

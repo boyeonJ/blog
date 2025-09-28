@@ -3,6 +3,7 @@ date: '2024-01-24'
 title: '엔트리 파일이 없는 Gatsby에서 최상단 컴포넌트는 어떻게 구현할까?(wrapPageElement, Profiler API)'
 categories: ['Gatsby', 'Optimization', 'DX', 'UX']
 summary: 'SSG인 Gatsby의 최상단 페이지가 없는 문제로 인하여 발생하는 불필요한 재랜더링, state 초기화 문제를 해결하는 과정을 기록하였습니다.'
+pinned: true
 ---
 Gatsby는 CSR처럼 엔트리 파일이 없고 **각각 페이지가 최상단 페이지** 파일입니다. 따라서 아래와 같은 문제가 발생합니다.
 
