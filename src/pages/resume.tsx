@@ -125,13 +125,13 @@ const ProjectInfo = ({ project }: { project: Project }) => {
             <StyledTypography variant="h5B">{project.name}</StyledTypography>
             <StyledTypography color="gray1">{project.period}</StyledTypography>
             <StyledTypography color="gray1" innerHtml>{project.description}</StyledTypography>
-            <ul css={{ paddingLeft: '20px', color: colors.gray2, listStylePosition: 'outside' }}>
-                {project.results.map((result) => (
-                    <li key={result}>
-                        <StyledTypography innerHtml>{result}</StyledTypography>
-                    </li>
-                ))}
-            </ul>
+            {/*<ul css={{ paddingLeft: '20px', color: colors.gray2, listStylePosition: 'outside' }}>*/}
+            {/*    {project.results.map((result) => (*/}
+            {/*        <li key={result}>*/}
+            {/*            <StyledTypography innerHtml>{result}</StyledTypography>*/}
+            {/*        </li>*/}
+            {/*    ))}*/}
+            {/*</ul>*/}
             <FlexBox direction="row" css={{ flexWrap: 'wrap' }} gap="10px">
                 {project.skills.map((skill: string) => (
                     <Chip key={skill} label={skill} />
