@@ -99,7 +99,7 @@ export default function App() {
 }
 ```
 
-## SRC
+## RSC
 
 Streaming SSR로 사용자에게 빠른 첫 화면을 제공하고 서버 부하를 줄였지만 여전히 데이터는 중복으로 존재했고 클라이언트에서 하이드레이션 비용도 남아있엇습니다.
 
