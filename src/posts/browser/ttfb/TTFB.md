@@ -1,7 +1,7 @@
 ---
 date: '2025-12-04'
 title: 'Time To First Byte 중요한 이유와 최적화 방법'
-categories: ['React']
+categories: ['Browser', 'Optimization']
 summary: 'Time To First Byte가 웹 성능 지표에서 중요한 이유와 측정/분석을 통해 최적화 할 수 있는 방법에 대해 알아봅시다.'
 pinned: false
 ---
