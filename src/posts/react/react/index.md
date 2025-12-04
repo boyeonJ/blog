@@ -15,7 +15,7 @@ pinned: true
 SPA 도구로 서버에서는 빈 HTML을 전달하기 때문에 아래와 같은 한계가 있었습니다.
 
 - SEO에 분리
-- TTFB/FCP 느림
+- FCP/LCP가 느려짐
 
 따라서 이를 해결하기 위해 renderToString를 도입하여 서버에서 HTML을 문자열로 생성후 클라이언트에서 하이드레이션 하는 구조가 가능해졌습니다.
 
