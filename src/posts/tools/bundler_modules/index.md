@@ -90,22 +90,6 @@ pinned: true
 
 ---
 
-## DX에 초점을 둔 UI 라이브러리 vs UX에 초점을 둔 빌드 도구
-
-### UI 라이브러리/프레임워크 (DX 개선)
-* React, Vue, Angular → 컴포넌트 단위, 선언적 UI, 상태 관리
-* Redux, React Query, Tailwind → 반복 패턴 감소, 생산성 극대화
-
-개발자의 **편리함·생산성·유지보수성**을 극대화
-
-### 빌드 도구/번들러 (UX 개선)
-* Webpack, Vite, esbuild, Rollup, Turbopack 등
-* 모듈 최적화, 트리쉐이킹, 코드 스플리팅, 압축, 캐싱 전략
-
-사용자의 **빠른 로딩·적은 용량·원활한 실행 경험**을 보장
-
----
-
 ## Webpack의 역사
 
 ### v1 (2014~2016)
@@ -140,6 +124,157 @@ pinned: true
 * Module Federation → 마이크로 프론트엔드 런타임 통합
 * Node polyfill 자동 제거 → 브라우저 번들 크기 감소
 * css-minimizer-webpack-plugin → CSS 최적화 표준화
+
+웹팩은 이러한 흐름을 거치며 발전해왔습니다. 단순히 여러 파일을 하나로 묶는 번들러를 넘어, 로더를 통해 자바스크립트 외의 다양한 자산을 모듈로 관리할 수 있게 되었고, 플러그인을 통해 번들 생성 과정 자체를 확장할 수 있게 되었습니다. 또한 코드 스플리팅, 트리 쉐이킹, 압축과 같은 최적화 기법을 도입해 번들 크기와 로딩 성능을 개선했으며, 개발 환경과 운영 환경에 따라 서로 다른 기본 동작과 기능을 제공하도록 진화했습니다.
+
+---
+
+## 현대적인 Webpack 옵션
+
+### 로더와 플러그인
+1. [babel-loader](https://webpack.kr/loaders/babel-loader/)
+- 최신 JS / JSX / TS를 브라우저 호환 코드로 변환
+```js
+module: {
+  rules: [
+    {
+      test: /\.(?:js|mjs|cjs)$/,
+      exclude: /node_modules/,
+      use: {
+        loader: 'babel-loader',
+        options: {
+          targets: "defaults",
+          presets: [
+            ['@babel/preset-env']
+          ]
+        }
+      }
+    }
+  ]
+}
+```
+
+2. css-loader / style-loader
+- [css-loader](https://webpack.js.org/loaders/css-loader/): CSS를 JS 모듈로 변환
+- [style-loader](https://webpack.js.org/loaders/style-loader/): <style> 태그로 주입 (개발 환경)
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
+      },
+    ],
+  },
+};
+```
+
+3. [MiniCssExtractPlugin.loader](https://webpack.js.org/plugins/mini-css-extract-plugin/)
+- 운영 환경에서 CSS를 별도 파일로 분리
+```js
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
+module.exports = {
+  plugins: [new MiniCssExtractPlugin()],
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
+      },
+    ],
+  },
+};
+```
+
+4. [asset modules (Webpack 5)](https://webpack.js.org/guides/asset-modules/)
+- file-loader / url-loader 대체
+- 이미지, 폰트 자동 처리
+```js
+module.exports = {
+  module: {
+   rules: [
+      {
+        test: /\.(png|jpg|gif)$/i,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192,
+            }
+          },
+        ],
++       type: 'javascript/auto'
+      },
+   ]
+  },
+}
+```
+
+5. [HtmlWebpackPlugin](https://webpack.js.org/plugins/html-webpack-plugin/)
+- HTML 파일 생성
+- 번들 자동 주입
+```js
+const path = require("node:path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+
+module.exports = {
+  entry: "index.js",
+  output: {
+    path: path.resolve(__dirname, "./dist"),
+    filename: "index_bundle.js",
+  },
+  plugins: [new HtmlWebpackPlugin()],
+};
+```
+
+### 최적화 방법
+
+1. [코드 스플리팅 (Chunk 분리)](https://webpack.js.org/guides/code-splitting/)
+- 언제 무엇을 로드 할지 제어
+3. [splitChunks (공통 코드 분리)](https://webpack.js.org/plugins/split-chunks-plugin/)
+- entry 간 중복 제거
+- vendor 분리
+- 캐싱 최적화
+3. [트리 쉐이킹 (Tree Shaking)](https://webpack.js.org/guides/tree-shaking/)
+- 청크 내부에서 안 쓰는 코드 제거
+- ES Module, production mode, sideEffects 정보가 필요하다는 조건이 있음
+4. [contenthash 기반 캐싱](https://webpack.js.org/guides/caching/)
+- 변경된 파일만 재다운로드
+- 장기 캐싱 가능
+```js
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+module.exports = {
+  entry: './src/index.js',
+  plugins: [
+    new HtmlWebpackPlugin({
+-       title: 'Output Management',
++       title: 'Caching',
+    }),
+  ],
+  output: {
+-     filename: 'bundle.js',
++     filename: '[name].[contenthash].js',
+    path: path.resolve(__dirname, 'dist'),
+    clean: true,
+  },
+};
+```
+
+### [mode에 따라 Webpack이 제공하는 것들](bpack.js.org/configuration/mode/)
+1. development mode
+- 빠른 빌드
+- 디버깅 친화적
+- minify 안하기
+3. production mode
+- tree shaking
+- minify (Terser)
+- scope hoisting
+- dead code elimination
 
 ---
 
