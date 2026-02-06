@@ -155,8 +155,8 @@ module: {
 ```
 
 2. css-loader / style-loader
-- [css-loader](https://webpack.js.org/loaders/css-loader/): CSS를 JS 모듈로 변환
-- [style-loader](https://webpack.js.org/loaders/style-loader/): <style> 태그로 주입 (개발 환경)
+- [css-loader](https://webpack.js.org/loaders/css-loader/) : CSS를 JS 모듈로 변환
+- [style-loader](https://webpack.js.org/loaders/style-loader/) : <style> 태그로 주입 (개발 환경)
 
 ```js
 module.exports = {
